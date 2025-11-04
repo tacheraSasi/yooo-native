@@ -1,11 +1,12 @@
-# React Native Toasts
+# React Native Toasts & Alerts
 
-An opinionated toast component for React Native. A port of @emilkowalski's sonner.
+An opinionated toast and alert component for React Native. Extended version of sonner-native with alert dialog support.
 
 ![sonner-native](https://github.com/user-attachments/assets/0baf95df-9c99-4db6-877e-1edcc0eca0d4)
 
 ## Features
 
+### Toast Features
 - API fully matches [Sonner's](https://sonner.emilkowal.ski/)
 - Multiple variants, including `success`, `error`, `warning`, `custom`, `promise`
 - Promise variant with built-in loading state
@@ -16,6 +17,17 @@ An opinionated toast component for React Native. A port of @emilkowalski's sonne
 - Custom icons
 - Optionally dismissable with swipe, configurable left or up
 - Dismissable with toast.dismiss(), one or all toasts
+
+### Alert Dialog Features (NEW)
+- Modal-style alert dialogs using the same system
+- `alert.success()`, `alert.error()`, `alert.warning()`, `alert.info()`
+- `alert.confirm()` for confirmation dialogs with callbacks
+- `alert.custom()` for custom JSX content
+- Non-dismissible by default (requires explicit action)
+- Centered positioning
+- Action and cancel buttons
+
+### General Features
 - Highly performant using Reanimated 3, 60 FPS
 - Dark mode built-in
 - Works with Expo
@@ -38,7 +50,9 @@ An opinionated toast component for React Native. A port of @emilkowalski's sonne
 ## Installation
 
 ```sh
-npx expo install sonner-native
+npm install sonner-native-with-alerts
+# or
+yarn add sonner-native-with-alerts
 ```
 
 #### Requirements
@@ -55,7 +69,7 @@ To use this package, **you also need to install its peer dependencies**. Check o
 ### In your App.tsx/entry point
 
 ```typescript
-import { Toaster } from 'sonner-native';
+import { Toaster } from 'sonner-native-with-alerts';
 
 function App() {
   return (
@@ -65,6 +79,47 @@ function App() {
     </View>
   );
 }
+```
+
+### Using Toasts
+
+```typescript
+import { toast } from 'sonner-native-with-alerts';
+
+// Basic toast
+toast('Hello World');
+
+// Toast variants
+toast.success('Success!');
+toast.error('Error!');
+toast.warning('Warning!');
+toast.info('Info!');
+```
+
+### Using Alert Dialogs
+
+```typescript
+import { alert } from 'sonner-native-with-alerts';
+
+// Basic alert
+alert.info('Information message');
+
+// Success alert
+alert.success('Operation completed!');
+
+// Error alert
+alert.error('Something went wrong');
+
+// Confirmation alert
+alert.confirm('Are you sure?', {
+  onConfirm: () => console.log('Confirmed'),
+  onCancel: () => console.log('Cancelled')
+});
+
+// Custom alert with JSX
+alert.custom(
+  <YourCustomComponent />
+);
 ```
 
 ### Show a toast

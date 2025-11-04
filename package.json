@@ -1,7 +1,7 @@
 {
-  "name": "sonner-native",
-  "version": "0.21.1",
-  "description": "An opinionated toast component for React Native. A port of @emilkowalski's sonner.",
+  "name": "yooo-native",
+  "version": "1.0.0",
+  "description": "Yooo! An opinionated toast and alert component for React Native. Extended sonner with alert dialogs - because sometimes you need to yell at your users (nicely)!",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
   "types": "./lib/typescript/commonjs/src/index.d.ts",
@@ -43,7 +43,9 @@
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "clean": "del-cli lib",
     "prepare": "bob build",
-    "release": "release-it"
+    "release": "release-it",
+    "prepare-publish": "./scripts/prepare-publish.sh",
+    "publish-package": "npm run prepare-publish && npm publish"
   },
   "keywords": [
     "react-native",
@@ -51,20 +53,23 @@
     "android",
     "toast",
     "toasts",
+    "alert",
+    "alerts",
+    "dialog",
     "reanimated",
     "sonner",
     "sonner-native"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gunnartorfis/sonner-native.git"
+    "url": "git+https://github.com/yourusername/yooo-native.git"
   },
-  "author": "Gunnar Torfi <gunnartorfis@gmail.com> (https://github.com/gunnartorfis)",
+  "author": "Your Name <your.email@example.com> (https://github.com/yourusername)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gunnartorfis/sonner-native/issues"
+    "url": "https://github.com/yourusername/yooo-native/issues"
   },
-  "homepage": "https://github.com/gunnartorfis/sonner-native#readme",
+  "homepage": "https://github.com/yourusername/yooo-native#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
