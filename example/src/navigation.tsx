@@ -8,6 +8,7 @@ import { Button } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ToastDemo } from './ToastDemo';
 import { AlertDemo } from './AlertDemo';
+import { AlertDialogDemo } from './AlertDialogDemo';
 
 function HomeScreen({
   navigation,
@@ -29,6 +30,14 @@ function SettingsScreen() {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
       <AlertDemo />
+    </SafeAreaView>
+  );
+}
+
+function AlertDialogScreen() {
+  return (
+    <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
+      <AlertDialogDemo />
     </SafeAreaView>
   );
 }
@@ -61,6 +70,20 @@ function SettingsStackScreen() {
   );
 }
 
+type AlertStackParamList = {
+  AlertDialog: undefined;
+};
+
+const AlertStack = createNativeStackNavigator<AlertStackParamList>();
+
+function AlertStackScreen() {
+  return (
+    <AlertStack.Navigator>
+      <AlertStack.Screen name="AlertDialog" component={AlertDialogScreen} />
+    </AlertStack.Navigator>
+  );
+}
+
 type RootStackParamList = {
   Tab: undefined;
   Modal: undefined;
@@ -73,8 +96,9 @@ const Tab = createBottomTabNavigator();
 const MainTab: React.FC = () => {
   return (
     <Tab.Navigator screenOptions={{ headerShown: false }}>
-      <Tab.Screen name="HomeStack" component={HomeStackScreen} />
-      <Tab.Screen name="SettingsStack" component={SettingsStackScreen} />
+      <Tab.Screen name="Toasts" component={HomeStackScreen} />
+      <Tab.Screen name="Alerts" component={SettingsStackScreen} />
+      <Tab.Screen name="Dialogs" component={AlertStackScreen} />
     </Tab.Navigator>
   );
 };

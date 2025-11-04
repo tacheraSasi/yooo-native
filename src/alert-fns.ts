@@ -126,3 +126,85 @@ alert.custom = (jsx: React.ReactElement, options?: ExternalToast) => {
 alert.dismiss = (id?: string | number) => {
   return getToastContext().dismissToast(id);
 };
+
+// Advanced dialog method that matches Alert.alert() API
+alert.dialog = (
+  title: string,
+  message?: string,
+  buttons?: Array<{
+    text: string;
+    style?: 'default' | 'cancel' | 'destructive';
+    onPress?: () => void | Promise<void>;
+  }>,
+  options?: ExternalToast
+) => {
+  // If no buttons provided, default to "OK"
+  if (!buttons || buttons.length === 0) {
+    buttons = [{ text: 'OK', style: 'default' }];
+  }
+
+  // Find cancel and action buttons
+  const cancelButton =
+    buttons.find((btn) => btn.style === 'cancel') || buttons[0];
+  const actionButtons = buttons.filter((btn) => btn.style !== 'cancel');
+  const primaryAction = actionButtons[actionButtons.length - 1]; // Last non-cancel button is primary
+
+  return getToastContext().addToast({
+    title,
+    description: message,
+    variant: primaryAction?.style === 'destructive' ? 'error' : 'info',
+    duration: Infinity,
+    dismissible: false,
+    position: 'center',
+
+    // Primary action (rightmost button, usually the main action)
+    action: primaryAction
+      ? {
+          label: primaryAction.text,
+          onClick: async () => {
+            try {
+              await primaryAction.onPress?.();
+            } catch (error) {
+              console.error('Error in alert action:', error);
+            } finally {
+              alert.dismiss();
+            }
+          },
+        }
+      : undefined,
+
+    // Cancel button (leftmost, or any button marked as cancel)
+    cancel: cancelButton
+      ? {
+          label: cancelButton.text,
+          onClick: async () => {
+            try {
+              await cancelButton.onPress?.();
+            } catch (error) {
+              console.error('Error in alert cancel:', error);
+            } finally {
+              alert.dismiss();
+            }
+          },
+        }
+      : undefined,
+
+    // Custom styling based on button styles
+    actionButtonStyle:
+      primaryAction?.style === 'destructive'
+        ? {
+            backgroundColor: '#ff4444',
+          }
+        : undefined,
+
+    actionButtonTextStyle:
+      primaryAction?.style === 'destructive'
+        ? {
+            color: 'white',
+            fontWeight: 'bold',
+          }
+        : undefined,
+
+    ...options,
+  });
+};

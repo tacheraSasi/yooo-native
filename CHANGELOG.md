@@ -1,4 +1,34 @@
 
+# Changelog for yooo-native
+
+All notable changes to yooo-native will be documented in this file.
+
+## [1.1.0] - 2025-11-04
+
+### 🎉 Added - Alert Dialog System
+- **`alert.dialog()`**: Advanced dialog method that matches React Native's `Alert.alert()` API exactly
+- **Quick Alert Methods**: `alert.success()`, `alert.error()`, `alert.warning()`, `alert.info()`, `alert.confirm()`, `alert.custom()`
+- **Modal-style behavior**: Alerts stay on screen until dismissed, centered positioning
+- **TypeScript Support**: Full type definitions for all alert methods
+- **Drop-in replacement**: Direct replacement for React Native's `Alert.alert()`
+
+### 🔄 Changed  
+- **Package Name**: Changed to `yooo-native` - because sometimes you need to yell at your users (nicely)!
+- **Version**: Bumped to 1.1.0 for new alert features
+
+### 📚 Documentation
+- Updated README with alert examples and migration guide
+- Added comprehensive AlertDialogDemo with real-world examples
+
+## [1.0.0] - 2025-11-04
+
+### Added
+- Initial release based on sonner-native with enhanced alert capabilities
+- All original toast functionality preserved
+
+---
+
+## Original sonner-native changelog:
 
 ## [0.21.1](https://github.com/gunnartorfis/sonner-native/compare/v0.21.0...v0.21.1) (2025-08-28)
 

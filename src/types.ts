@@ -181,6 +181,12 @@ type AlertConfirmOptions = ExternalToast & {
   onCancel?: () => void;
 };
 
+type AlertButton = {
+  text: string;
+  style?: 'default' | 'cancel' | 'destructive';
+  onPress?: () => void | Promise<void>;
+};
+
 export declare const alert: ((
   message: string,
   data?: ExternalToast
@@ -190,6 +196,12 @@ export declare const alert: ((
   error: (message: string, data?: ExternalToast) => string | number;
   warning: (message: string, data?: ExternalToast) => string | number;
   confirm: (message: string, options?: AlertConfirmOptions) => string | number;
+  dialog: (
+    title: string,
+    message?: string,
+    buttons?: AlertButton[],
+    options?: ExternalToast
+  ) => string | number;
   custom: (jsx: React.ReactElement, data?: ExternalToast) => string | number;
   dismiss: (id?: string | number) => string | number | undefined;
 };

@@ -53,9 +53,9 @@ An opinionated toast and alert component for React Native. Extended version of s
 ## Installation
 
 ```sh
-npm install sonner-native-with-alerts
+npm install yooo-native
 # or
-yarn add sonner-native-with-alerts
+yarn add yooo-native
 ```
 
 #### Requirements
@@ -72,7 +72,7 @@ To use this package, **you also need to install its peer dependencies**. Check o
 ### In your App.tsx/entry point
 
 ```typescript
-import { Toaster } from 'sonner-native-with-alerts';
+import { Toaster } from 'yooo-native';
 
 function App() {
   return (
@@ -87,42 +87,75 @@ function App() {
 ### Using Toasts
 
 ```typescript
-import { toast } from 'sonner-native-with-alerts';
+import { toast } from 'yooo-native';
 
 // Basic toast
-toast('Hello World');
+toast('Yooo! Hello World 🎉');
 
 // Toast variants
-toast.success('Success!');
-toast.error('Error!');
-toast.warning('Warning!');
-toast.info('Info!');
+toast.success('Yooo! Success! ✅');
+toast.error('Yooo! Error! ❌');
+toast.warning('Yooo! Warning! ⚠️');
+toast.info('Yooo! Info! ℹ️');
 ```
 
 ### Using Alert Dialogs
 
 ```typescript
-import { alert } from 'sonner-native-with-alerts';
+import { alert } from 'yooo-native';
 
-// Basic alert
-alert.info('Information message');
+// Basic alerts
+alert.info('Yooo! Information message');
+alert.success('Yooo! Operation completed!');
+alert.error('Yooo! Something went wrong');
 
-// Success alert
-alert.success('Operation completed!');
-
-// Error alert
-alert.error('Something went wrong');
-
-// Confirmation alert
-alert.confirm('Are you sure?', {
-  onConfirm: () => console.log('Confirmed'),
-  onCancel: () => console.log('Cancelled')
+// Simple confirmation
+alert.confirm('Yooo! Are you sure?', {
+  onConfirm: () => console.log('User confirmed'),
+  onCancel: () => console.log('User cancelled')
 });
+
+// Advanced dialog (matches Alert.alert() API)
+alert.dialog(
+  'Delete Item',
+  'Are you sure you want to delete this item? This action cannot be undone.',
+  [
+    { text: 'Cancel', style: 'cancel' },
+    {
+      text: 'Delete',
+      style: 'destructive',
+      onPress: async () => {
+        // Your delete logic here
+        console.log('Item deleted');
+      }
+    }
+  ]
+);
 
 // Custom alert with JSX
 alert.custom(
   <YourCustomComponent />
 );
+```
+
+### Replacing React Native's Alert.alert()
+
+You can directly replace React Native's `Alert.alert()` with `alert.dialog()`:
+
+```typescript
+// Before (React Native)
+import { Alert } from 'react-native';
+Alert.alert('Title', 'Message', [
+  { text: 'Cancel', style: 'cancel' },
+  { text: 'OK', onPress: () => console.log('OK') },
+]);
+
+// After (yooo-native)
+import { alert } from 'yooo-native';
+alert.dialog('Title', 'Message', [
+  { text: 'Cancel', style: 'cancel' },
+  { text: 'OK', onPress: () => console.log('OK') },
+]);
 ```
 
 ### Show a toast
