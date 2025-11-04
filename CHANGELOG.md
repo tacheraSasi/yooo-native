@@ -1,4 +1,3 @@
-
 # Changelog for yooo-native
 
 All notable changes to yooo-native will be documented in this file.
@@ -6,23 +5,27 @@ All notable changes to yooo-native will be documented in this file.
 ## [1.1.0] - 2025-11-04
 
 ### 🎉 Added - Alert Dialog System
+
 - **`alert.dialog()`**: Advanced dialog method that matches React Native's `Alert.alert()` API exactly
 - **Quick Alert Methods**: `alert.success()`, `alert.error()`, `alert.warning()`, `alert.info()`, `alert.confirm()`, `alert.custom()`
 - **Modal-style behavior**: Alerts stay on screen until dismissed, centered positioning
 - **TypeScript Support**: Full type definitions for all alert methods
 - **Drop-in replacement**: Direct replacement for React Native's `Alert.alert()`
 
-### 🔄 Changed  
+### 🔄 Changed
+
 - **Package Name**: Changed to `yooo-native` - because sometimes you need to yell at your users (nicely)!
 - **Version**: Bumped to 1.1.0 for new alert features
 
 ### 📚 Documentation
+
 - Updated README with alert examples and migration guide
 - Added comprehensive AlertDialogDemo with real-world examples
 
 ## [1.0.0] - 2025-11-04
 
 ### Added
+
 - Initial release based on sonner-native with enhanced alert capabilities
 - All original toast functionality preserved
 
@@ -32,64 +35,56 @@ All notable changes to yooo-native will be documented in this file.
 
 ## [0.21.1](https://github.com/gunnartorfis/sonner-native/compare/v0.21.0...v0.21.1) (2025-08-28)
 
-
 ### Bug Fixes
 
-* fixes flicker caused by two animations trying animating the same view and property ([89d606c](https://github.com/gunnartorfis/sonner-native/commit/89d606c9497d1220ba83a34e0d1b3bd223ebf47a))
+- fixes flicker caused by two animations trying animating the same view and property ([89d606c](https://github.com/gunnartorfis/sonner-native/commit/89d606c9497d1220ba83a34e0d1b3bd223ebf47a))
 
 # [0.21.0](https://github.com/gunnartorfis/sonner-native/compare/v0.20.0...v0.21.0) (2025-06-10)
 
-
 ### Features
 
-* add elastic resistance for toast wrong-direction gestures ([bb345b4](https://github.com/gunnartorfis/sonner-native/commit/bb345b4b7d265af660a26df7476871214e04f38c))
+- add elastic resistance for toast wrong-direction gestures ([bb345b4](https://github.com/gunnartorfis/sonner-native/commit/bb345b4b7d265af660a26df7476871214e04f38c))
 
 # [0.20.0](https://github.com/gunnartorfis/sonner-native/compare/v0.20.0-beta.0...v0.20.0) (2025-05-14)
 
 # [0.20.0-beta.0](https://github.com/gunnartorfis/sonner-native/compare/v0.19.1...v0.20.0-beta.0) (2025-05-14)
 
-
 ### Bug Fixes
 
-* attempt to fix android crash ([4c9f042](https://github.com/gunnartorfis/sonner-native/commit/4c9f04272a9c73332fb563ca1bf7a3946dafc2e4))
+- attempt to fix android crash ([4c9f042](https://github.com/gunnartorfis/sonner-native/commit/4c9f04272a9c73332fb563ca1bf7a3946dafc2e4))
 
 ## [0.19.1](https://github.com/gunnartorfis/sonner-native/compare/v0.19.0...v0.19.1) (2025-05-10)
 
-
 ### Bug Fixes
 
-* temporarily disable opacity gesture animation on Android ([350ac2f](https://github.com/gunnartorfis/sonner-native/commit/350ac2ffc14f190449ea3deda3d5408c5512457d))
-* the missed style props for the toaster props ([27200a1](https://github.com/gunnartorfis/sonner-native/commit/27200a1c959431b1bd0d401cdb10d173c4708089))
+- temporarily disable opacity gesture animation on Android ([350ac2f](https://github.com/gunnartorfis/sonner-native/commit/350ac2ffc14f190449ea3deda3d5408c5512457d))
+- the missed style props for the toaster props ([27200a1](https://github.com/gunnartorfis/sonner-native/commit/27200a1c959431b1bd0d401cdb10d173c4708089))
 
 # [0.19.0](https://github.com/gunnartorfis/sonner-native/compare/v0.18.1...v0.19.0) (2025-04-01)
 
-
 ### Features
 
-* centered toasts ([d0648d4](https://github.com/gunnartorfis/sonner-native/commit/d0648d4f2c327d1912b41ee9d98dede9b728df52))
+- centered toasts ([d0648d4](https://github.com/gunnartorfis/sonner-native/commit/d0648d4f2c327d1912b41ee9d98dede9b728df52))
 
 ## [0.18.1](https://github.com/gunnartorfis/sonner-native/compare/v0.18.0...v0.18.1) (2025-04-01)
 
-
 ### Bug Fixes
 
-* key missing prop ([1158284](https://github.com/gunnartorfis/sonner-native/commit/115828487d06ae88dc357c5c76f8197fe8c11644))
+- key missing prop ([1158284](https://github.com/gunnartorfis/sonner-native/commit/115828487d06ae88dc357c5c76f8197fe8c11644))
 
 # [0.18.0](https://github.com/gunnartorfis/sonner-native/compare/v0.18.0-beta.0...v0.18.0) (2025-03-31)
 
 # [0.18.0-beta.0](https://github.com/gunnartorfis/sonner-native/compare/v0.17.0...v0.18.0-beta.0) (2025-03-29)
 
-
 ### Bug Fixes
 
-* bottom positioned toast animation fix ([8196552](https://github.com/gunnartorfis/sonner-native/commit/8196552ad02df1272d5e5f9a81dbe1d8b98d8201))
-* set full width to ToastWrapper by default ([5b196ca](https://github.com/gunnartorfis/sonner-native/commit/5b196ca6d2e93ae9a0826d49fcfaf9c7689e3edb))
-* updating toasts race condition ([393f6bb](https://github.com/gunnartorfis/sonner-native/commit/393f6bb1773764f2f5993f835de4559e62d7f97a))
-
+- bottom positioned toast animation fix ([8196552](https://github.com/gunnartorfis/sonner-native/commit/8196552ad02df1272d5e5f9a81dbe1d8b98d8201))
+- set full width to ToastWrapper by default ([5b196ca](https://github.com/gunnartorfis/sonner-native/commit/5b196ca6d2e93ae9a0826d49fcfaf9c7689e3edb))
+- updating toasts race condition ([393f6bb](https://github.com/gunnartorfis/sonner-native/commit/393f6bb1773764f2f5993f835de4559e62d7f97a))
 
 ### Features
 
-* add a ToastWrapper to wrap the toast with a custom component ([0040467](https://github.com/gunnartorfis/sonner-native/commit/00404676261ce38fa99d513faddb4de19fe058ea))
+- add a ToastWrapper to wrap the toast with a custom component ([0040467](https://github.com/gunnartorfis/sonner-native/commit/00404676261ce38fa99d513faddb4de19fe058ea))
 
 # [0.17.0](https://github.com/gunnartorfis/sonner-native/compare/v0.16.2...v0.17.0) (2025-02-04)
 
