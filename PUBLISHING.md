@@ -82,16 +82,19 @@ This shows you what would be published without actually publishing.
 ## Step 7: Publish to npm
 
 ### Option A: Standard publish
+
 ```bash
 npm publish
 ```
 
 ### Option B: Using the convenience script
+
 ```bash
 npm run publish-package
 ```
 
 ### Option C: Scoped package (if using @yourname/package-name)
+
 ```bash
 npm publish --access public
 ```
@@ -127,7 +130,7 @@ import { Toaster, toast, alert } from 'your-package-name';
 // Use toasts
 toast.success('Success!');
 
-// Use alerts  
+// Use alerts
 alert.confirm('Are you sure?', {
   onConfirm: () => console.log('Confirmed')
 });
@@ -155,20 +158,22 @@ npm publish
 ## Troubleshooting
 
 - **403 Forbidden**: You don't have permission or the package name is taken
-- **Build errors**: Run `npm run clean && npm run prepare` 
+- **Build errors**: Run `npm run clean && npm run prepare`
 - **Test failures**: Fix tests before publishing
 - **Package size too large**: Check `.npmignore` to exclude unnecessary files
 
 ## Files Included in Package
 
 The package will include:
+
 - `src/` - Source TypeScript files
-- `lib/` - Compiled JavaScript files  
+- `lib/` - Compiled JavaScript files
 - `package.json` - Package metadata
 - `README.md` - Documentation
 - TypeScript definitions
 
 Files excluded (via `.npmignore` or `files` field):
+
 - `example/` - Example app
 - `docs/` - Documentation source
 - Test files

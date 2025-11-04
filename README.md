@@ -7,6 +7,7 @@ An opinionated toast and alert component for React Native. Extended version of s
 ## Features
 
 ### Toast Features
+
 - API fully matches [Sonner's](https://sonner.emilkowal.ski/)
 - Multiple variants, including `success`, `error`, `warning`, `custom`, `promise`
 - Promise variant with built-in loading state
@@ -19,6 +20,7 @@ An opinionated toast and alert component for React Native. Extended version of s
 - Dismissable with toast.dismiss(), one or all toasts
 
 ### Alert Dialog Features (NEW)
+
 - Modal-style alert dialogs using the same system
 - `alert.success()`, `alert.error()`, `alert.warning()`, `alert.info()`
 - `alert.confirm()` for confirmation dialogs with callbacks
@@ -28,6 +30,7 @@ An opinionated toast and alert component for React Native. Extended version of s
 - Action and cancel buttons
 
 ### General Features
+
 - Highly performant using Reanimated 3, 60 FPS
 - Dark mode built-in
 - Works with Expo

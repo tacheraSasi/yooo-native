@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Script to prepare and publish sonner-native-with-alerts to npm
+# Script to prepare and publish yooo-native to npm
 
-echo "🚀 Preparing to publish sonner-native-with-alerts..."
+echo "🚀 Preparing to publish yooo-native..."
 
 # Check if you're logged in to npm
 echo "📝 Checking npm login status..."
@@ -15,13 +15,13 @@ echo "✅ You're logged in to npm as: $(npm whoami)"
 
 # Check if package name is available
 echo "🔍 Checking if package name is available..."
-if npm view sonner-native-with-alerts > /dev/null 2>&1; then
-    echo "❌ Package name 'sonner-native-with-alerts' is already taken!"
+if npm view yooo-native > /dev/null 2>&1; then
+    echo "❌ Package name 'yooo-native' is already taken!"
     echo "Please choose a different name in package.json"
     exit 1
 fi
 
-echo "✅ Package name 'sonner-native-with-alerts' is available!"
+echo "✅ Package name 'yooo-native' is available!"
 
 # Build the package
 echo "🔨 Building the package..."
