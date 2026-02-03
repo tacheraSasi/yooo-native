@@ -207,8 +207,5 @@
   "create-react-native-library": {
     "type": "library",
     "version": "0.41.0"
-  },
-  "dependencies": {
-    "yooo-native": "^1.0.0"
   }
 }
