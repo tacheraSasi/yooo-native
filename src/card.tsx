@@ -7,7 +7,6 @@ export interface CardProps {
   children: React.ReactNode;
   variant?: CardVariant;
   style?: ViewStyle;
-  onPress?: () => void;
 }
 
 export const Card: React.FC<CardProps> = ({
