@@ -38,6 +38,17 @@ An opinionated toast and alert component for React Native. Extended version of s
 - Customizable via styles props
 - Works outside of React components
 
+### UI Components (NEW)
+
+- **Button** - Customizable buttons with variants and loading states
+- **Spinner** - Animated loading indicators
+- **Badge** - Notification badges and status indicators
+- **Avatar** - User avatars with initials fallback
+- **Card** - Container components with elevation and borders
+- **Icons** - 14+ SVG icons including Check, Bell, Heart, Star, and more
+
+See [COMPONENTS.md](./COMPONENTS.md) for detailed component documentation.
+
 ## Showcase
 
 <img width="416" alt="Screenshot 2024-09-06 at 16 33 10" src="https://github.com/user-attachments/assets/fb986f0f-6f5a-4716-9633-6dfe492a9e9c">
