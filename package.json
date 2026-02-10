@@ -1,6 +1,6 @@
 {
   "name": "yooo-native",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Yooo! An opinionated toast and alert component for React Native. Extended sonner with alert dialogs - because sometimes you need to yell at your users (nicely)!",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
@@ -37,7 +37,7 @@
     "!**/.*"
   ],
   "scripts": {
-    "example": "yarn workspace sonner-native-example",
+    "example": "yarn workspace yooo-native-example",
     "test": "jest",
     "typecheck": "tsc",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
@@ -57,19 +57,19 @@
     "alerts",
     "dialog",
     "reanimated",
-    "sonner",
-    "sonner-native"
+    "yooo",
+    "yooo-native"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourusername/yooo-native.git"
+    "url": "git+https://github.com/tacheraSasi/yooo-native.git"
   },
-  "author": "Your Name <your.email@example.com> (https://github.com/yourusername)",
+  "author": "Tachera Sasi <tacherasasi@gmail.com> (https://github.com/tacheraSasi)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yourusername/yooo-native/issues"
+    "url": "https://github.com/tacheraSasi/yooo-native"
   },
-  "homepage": "https://github.com/yourusername/yooo-native#readme",
+  "homepage": "https://github.com/tacheraSasi/yooo-native#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
