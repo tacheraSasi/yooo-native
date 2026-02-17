@@ -1,9 +1,16 @@
 import Svg, { type SvgProps, Circle, Path } from 'react-native-svg';
 
+/**
+ * Props for icon components
+ */
 interface IconProps extends SvgProps {
+  /** Size of the icon in pixels (default: 24) */
   size?: number;
 }
 
+/**
+ * Circle check icon - typically used for success states
+ */
 export const CircleCheck = ({ size, ...props }: IconProps) => (
   <Svg
     width={size || 24}
@@ -21,6 +28,9 @@ export const CircleCheck = ({ size, ...props }: IconProps) => (
   </Svg>
 );
 
+/**
+ * Circle X icon - typically used for error states
+ */
 export const CircleX = ({ size, ...props }: IconProps) => (
   <Svg
     width={size || 24}
@@ -38,6 +48,9 @@ export const CircleX = ({ size, ...props }: IconProps) => (
   </Svg>
 );
 
+/**
+ * Info icon - typically used for informational states
+ */
 export const Info = ({ size, ...props }: IconProps) => (
   <Svg
     width={size || 24}
@@ -55,6 +68,9 @@ export const Info = ({ size, ...props }: IconProps) => (
   </Svg>
 );
 
+/**
+ * Triangle alert icon - typically used for warning states
+ */
 export const TriangleAlert = ({ size, ...props }: IconProps) => (
   <Svg
     width={size || 24}
@@ -71,6 +87,9 @@ export const TriangleAlert = ({ size, ...props }: IconProps) => (
   </Svg>
 );
 
+/**
+ * X icon - typically used for close buttons
+ */
 export const X = ({ size, ...props }: IconProps) => (
   <Svg
     width={size || 24}
@@ -87,6 +106,9 @@ export const X = ({ size, ...props }: IconProps) => (
   </Svg>
 );
 
+/**
+ * Loader icon - used for loading/spinner states
+ */
 export const Loader = ({ size, ...props }: IconProps) => (
   <Svg
     width={size || 24}
@@ -103,6 +125,9 @@ export const Loader = ({ size, ...props }: IconProps) => (
   </Svg>
 );
 
+/**
+ * Bell icon - typically used for notifications
+ */
 export const Bell = ({ size, ...props }: IconProps) => (
   <Svg
     width={size || 24}
@@ -119,6 +144,9 @@ export const Bell = ({ size, ...props }: IconProps) => (
   </Svg>
 );
 
+/**
+ * Heart icon - typically used for favorites or likes
+ */
 export const Heart = ({ size, ...props }: IconProps) => (
   <Svg
     width={size || 24}
@@ -135,6 +163,9 @@ export const Heart = ({ size, ...props }: IconProps) => (
   </Svg>
 );
 
+/**
+ * Star icon - typically used for ratings or favorites
+ */
 export const Star = ({ size, ...props }: IconProps) => (
   <Svg
     width={size || 24}
@@ -151,6 +182,9 @@ export const Star = ({ size, ...props }: IconProps) => (
   </Svg>
 );
 
+/**
+ * Check icon - typically used for confirmation or completion
+ */
 export const Check = ({ size, ...props }: IconProps) => (
   <Svg
     width={size || 24}
@@ -167,6 +201,9 @@ export const Check = ({ size, ...props }: IconProps) => (
   </Svg>
 );
 
+/**
+ * Alert circle icon - typically used for alerts or warnings
+ */
 export const AlertCircle = ({ size, ...props }: IconProps) => (
   <Svg
     width={size || 24}
@@ -184,6 +221,9 @@ export const AlertCircle = ({ size, ...props }: IconProps) => (
   </Svg>
 );
 
+/**
+ * Chevron right icon - typically used for navigation
+ */
 export const ChevronRight = ({ size, ...props }: IconProps) => (
   <Svg
     width={size || 24}
@@ -200,6 +240,9 @@ export const ChevronRight = ({ size, ...props }: IconProps) => (
   </Svg>
 );
 
+/**
+ * Chevron down icon - typically used for dropdowns or expandable sections
+ */
 export const ChevronDown = ({ size, ...props }: IconProps) => (
   <Svg
     width={size || 24}

@@ -15,6 +15,12 @@ import { isToastAction, type ToastProps, type ToastRef } from './types';
 import { useAppStateListener } from './use-app-state';
 import { useDefaultStyles } from './use-default-styles';
 
+/**
+ * Toast component that displays notification messages
+ * Supports various variants (success, error, warning, info, loading)
+ * Can be dismissed by swipe gesture or automatically after a duration
+ * Handles promise states and custom actions
+ */
 export const Toast = React.forwardRef<ToastRef, ToastProps>(
   (
     {
