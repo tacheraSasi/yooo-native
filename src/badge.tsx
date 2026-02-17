@@ -1,18 +1,43 @@
 import React from 'react';
 import { View, Text, type TextStyle, type ViewStyle } from 'react-native';
 
+/**
+ * Variant options for the Badge component
+ */
 export type BadgeVariant = 'default' | 'success' | 'error' | 'warning' | 'info';
+
+/**
+ * Size options for the Badge component
+ */
 export type BadgeSize = 'small' | 'medium' | 'large';
 
+/**
+ * Props for the Badge component
+ */
 export interface BadgeProps {
+  /** Content to display inside the badge */
   children: React.ReactNode;
+  /** Visual style variant of the badge */
   variant?: BadgeVariant;
+  /** Size of the badge */
   size?: BadgeSize;
+  /** Custom container style */
   style?: ViewStyle;
+  /** Custom text style */
   textStyle?: TextStyle;
+  /** Optional icon to display before the text */
   icon?: React.ReactNode;
 }
 
+/**
+ * Badge component for displaying status indicators, labels, or counts
+ * @example
+ * ```tsx
+ * <Badge variant="success">Active</Badge>
+ * <Badge variant="error" size="small">Error</Badge>
+ * <Badge variant="info" icon={<InfoIcon />}>New</Badge>
+ * ```
+ */
 export const Badge: React.FC<BadgeProps> = ({
   children,
   variant = 'default',
@@ -21,6 +46,10 @@ export const Badge: React.FC<BadgeProps> = ({
   textStyle,
   icon,
 }) => {
+  /**
+   * Generates the container style based on size and variant
+   * @returns The computed ViewStyle for the badge container
+   */
   const getBadgeStyle = (): ViewStyle => {
     const baseStyle: ViewStyle = {
       flexDirection: 'row',
@@ -53,6 +82,10 @@ export const Badge: React.FC<BadgeProps> = ({
     return { ...baseStyle, ...variantStyles[variant] };
   };
 
+  /**
+   * Generates the text style based on size and variant
+   * @returns The computed TextStyle for the badge text
+   */
   const getTextStyle = (): TextStyle => {
     const baseStyle: TextStyle = {
       fontSize: size === 'small' ? 10 : size === 'medium' ? 12 : 14,

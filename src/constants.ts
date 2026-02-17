@@ -6,6 +6,10 @@ import type {
   ToastVariant,
 } from './types';
 
+/**
+ * Default configuration values for toast and toaster components
+ * These values are used as fallbacks when props are not provided
+ */
 export const toastDefaultValues: {
   duration: number;
   position: ToastPosition;

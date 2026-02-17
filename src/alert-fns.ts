@@ -2,6 +2,9 @@ import type React from 'react';
 import { getToastContext } from './toaster';
 import { type alert as alertType } from './types';
 
+/**
+ * External toast options type for alert dialogs
+ */
 type ExternalToast = {
   id?: string | number;
   duration?: number;
@@ -18,6 +21,18 @@ type ExternalToast = {
   onPress?: () => void;
 };
 
+/**
+ * Creates an alert dialog that doesn't auto-dismiss
+ * Unlike toasts, alerts require explicit user interaction to dismiss
+ * @param title - The alert title/message to display
+ * @param options - Optional configuration for the alert
+ * @returns The ID of the created alert
+ * @example
+ * ```tsx
+ * alert('Important message');
+ * alert('Custom alert', { description: 'More details here' });
+ * ```
+ */
 export const alert: typeof alertType = (
   title: string,
   options?: ExternalToast
@@ -32,6 +47,12 @@ export const alert: typeof alertType = (
   });
 };
 
+/**
+ * Creates a success alert dialog with green styling
+ * @param title - The success message to display
+ * @param options - Optional configuration for the alert
+ * @returns The ID of the created alert
+ */
 alert.success = (title: string, options: ExternalToast = {}) => {
   return getToastContext().addToast({
     ...options,
@@ -43,6 +64,12 @@ alert.success = (title: string, options: ExternalToast = {}) => {
   });
 };
 
+/**
+ * Creates an error alert dialog with red styling
+ * @param title - The error message to display
+ * @param options - Optional configuration for the alert
+ * @returns The ID of the created alert
+ */
 alert.error = (title: string, options: ExternalToast = {}) => {
   return getToastContext().addToast({
     ...options,
@@ -54,6 +81,12 @@ alert.error = (title: string, options: ExternalToast = {}) => {
   });
 };
 
+/**
+ * Creates a warning alert dialog with orange styling
+ * @param title - The warning message to display
+ * @param options - Optional configuration for the alert
+ * @returns The ID of the created alert
+ */
 alert.warning = (title: string, options: ExternalToast = {}) => {
   return getToastContext().addToast({
     ...options,
@@ -65,6 +98,12 @@ alert.warning = (title: string, options: ExternalToast = {}) => {
   });
 };
 
+/**
+ * Creates an info alert dialog with blue styling
+ * @param title - The info message to display
+ * @param options - Optional configuration for the alert
+ * @returns The ID of the created alert
+ */
 alert.info = (title: string, options: ExternalToast = {}) => {
   return getToastContext().addToast({
     title,
@@ -76,6 +115,19 @@ alert.info = (title: string, options: ExternalToast = {}) => {
   });
 };
 
+/**
+ * Creates a confirmation alert dialog with Confirm and Cancel buttons
+ * @param title - The confirmation message to display
+ * @param options - Optional configuration including onConfirm and onCancel callbacks
+ * @returns The ID of the created alert
+ * @example
+ * ```tsx
+ * alert.confirm('Delete this item?', {
+ *   onConfirm: () => deleteItem(),
+ *   onCancel: () => console.log('Cancelled')
+ * });
+ * ```
+ */
 alert.confirm = (
   title: string,
   options: { onConfirm?: () => void; onCancel?: () => void } = {}
@@ -111,6 +163,12 @@ alert.confirm = (
   });
 };
 
+/**
+ * Creates an alert with custom JSX content
+ * @param jsx - The custom React element to display
+ * @param options - Optional configuration for the alert
+ * @returns The ID of the created alert
+ */
 alert.custom = (jsx: React.ReactElement, options?: ExternalToast) => {
   return getToastContext().addToast({
     title: '',
@@ -123,11 +181,35 @@ alert.custom = (jsx: React.ReactElement, options?: ExternalToast) => {
   });
 };
 
+/**
+ * Dismisses an alert or all alerts
+ * @param id - Optional ID of the alert to dismiss. If not provided, dismisses all alerts
+ * @returns The ID of the dismissed alert or undefined
+ */
 alert.dismiss = (id?: string | number) => {
   return getToastContext().dismissToast(id);
 };
 
-// Advanced dialog method that matches Alert.alert() API
+/**
+ * Advanced dialog method that matches the React Native Alert.alert() API
+ * Provides a familiar interface for developers migrating from native alerts
+ * @param title - The alert title
+ * @param message - Optional description/message text
+ * @param buttons - Optional array of button configurations
+ * @param options - Optional additional configuration for the alert
+ * @returns The ID of the created alert
+ * @example
+ * ```tsx
+ * alert.dialog(
+ *   'Delete Item',
+ *   'Are you sure you want to delete this?',
+ *   [
+ *     { text: 'Cancel', style: 'cancel' },
+ *     { text: 'Delete', style: 'destructive', onPress: () => deleteItem() }
+ *   ]
+ * );
+ * ```
+ */
 alert.dialog = (
   title: string,
   message?: string,

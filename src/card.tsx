@@ -1,19 +1,41 @@
 import React from 'react';
 import { View, type ViewStyle } from 'react-native';
 
+/**
+ * Variant options for the Card component
+ */
 export type CardVariant = 'elevated' | 'outlined' | 'filled';
 
+/**
+ * Props for the Card component
+ */
 export interface CardProps {
+  /** Content to display inside the card */
   children: React.ReactNode;
+  /** Visual style variant of the card */
   variant?: CardVariant;
+  /** Custom container style */
   style?: ViewStyle;
 }
 
+/**
+ * Card component for displaying content with different elevation and border styles
+ * @example
+ * ```tsx
+ * <Card variant="elevated">Elevated card content</Card>
+ * <Card variant="outlined">Outlined card content</Card>
+ * <Card variant="filled">Filled card content</Card>
+ * ```
+ */
 export const Card: React.FC<CardProps> = ({
   children,
   variant = 'elevated',
   style,
 }) => {
+  /**
+   * Generates the container style based on the variant
+   * @returns The computed ViewStyle for the card container
+   */
   const getCardStyle = (): ViewStyle => {
     const baseStyle: ViewStyle = {
       borderRadius: 12,

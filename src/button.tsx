@@ -7,22 +7,52 @@ import {
   ActivityIndicator,
 } from 'react-native';
 
+/**
+ * Variant options for the Button component
+ */
 export type ButtonVariant = 'primary' | 'secondary' | 'destructive' | 'ghost';
+
+/**
+ * Size options for the Button component
+ */
 export type ButtonSize = 'small' | 'medium' | 'large';
 
+/**
+ * Props for the Button component
+ */
 export interface ButtonProps {
+  /** Content to display inside the button */
   children: React.ReactNode;
+  /** Callback function when button is pressed */
   onPress?: () => void;
+  /** Visual style variant of the button */
   variant?: ButtonVariant;
+  /** Size of the button */
   size?: ButtonSize;
+  /** Whether the button is disabled */
   disabled?: boolean;
+  /** Whether to show a loading spinner */
   loading?: boolean;
+  /** Custom container style */
   style?: ViewStyle;
+  /** Custom text style */
   textStyle?: TextStyle;
+  /** Optional icon to display */
   icon?: React.ReactNode;
+  /** Position of the icon relative to text */
   iconPosition?: 'left' | 'right';
 }
 
+/**
+ * Button component with multiple variants and sizes
+ * @example
+ * ```tsx
+ * <Button onPress={handlePress}>Click me</Button>
+ * <Button variant="destructive" size="large">Delete</Button>
+ * <Button loading disabled>Loading...</Button>
+ * <Button icon={<Icon />} iconPosition="left">With Icon</Button>
+ * ```
+ */
 export const Button: React.FC<ButtonProps> = ({
   children,
   onPress,
@@ -35,6 +65,10 @@ export const Button: React.FC<ButtonProps> = ({
   icon,
   iconPosition = 'left',
 }) => {
+  /**
+   * Generates the container style based on variant, size, and disabled state
+   * @returns The computed ViewStyle for the button container
+   */
   const getButtonStyle = (): ViewStyle => {
     const baseStyle: ViewStyle = {
       flexDirection: 'row',
@@ -68,6 +102,10 @@ export const Button: React.FC<ButtonProps> = ({
     return { ...baseStyle, ...variantStyles[variant], ...disabledStyle };
   };
 
+  /**
+   * Generates the text style based on size and variant
+   * @returns The computed TextStyle for the button text
+   */
   const getTextStyle = (): TextStyle => {
     const baseStyle: TextStyle = {
       fontSize: size === 'small' ? 14 : size === 'medium' ? 16 : 18,
