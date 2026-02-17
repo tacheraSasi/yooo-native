@@ -1,6 +1,9 @@
 import { useColorScheme } from 'react-native';
 import { useToastContext } from './context';
 
+/**
+ * Light theme color palette
+ */
 const light = {
   'background-primary': '#fff',
   'background-secondary': '#f7f7f7',
@@ -37,6 +40,9 @@ const light = {
   },
 };
 
+/**
+ * Dark theme color palette
+ */
 const dark: typeof light = {
   'background-primary': '#181313',
   'background-secondary': '#232020',
@@ -73,6 +79,11 @@ const dark: typeof light = {
   },
 };
 
+/**
+ * Hook that returns the appropriate color palette based on theme and invert settings
+ * @param invertProps - Optional override for the invert setting
+ * @returns Color palette object with theme colors
+ */
 export const useColors = (invertProps?: boolean) => {
   const { invert: invertCtx, theme } = useToastContext();
   const systemScheme = useColorScheme();

@@ -4,6 +4,14 @@ import type { ToasterProps } from './types';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useToastContext } from './context';
 
+/**
+ * Positioner component that handles the placement of toasts on screen
+ * Automatically adjusts for safe areas and positions toasts correctly
+ * @param props - Component props including position and style
+ * @param props.children - Toast components to position
+ * @param props.position - Where to position the toasts (top-center, bottom-center, or center)
+ * @param props.style - Optional custom style overrides
+ */
 export const Positioner: React.FC<
   React.PropsWithChildren<Pick<ToasterProps, 'position' | 'style'>>
 > = ({ children, position, style, ...props }) => {

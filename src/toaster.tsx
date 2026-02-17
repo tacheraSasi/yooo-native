@@ -17,10 +17,21 @@ import {
 import { areToastsEqual } from './toast-comparator';
 import { ANIMATION_DURATION } from './animations';
 
+/** Handler function for adding toasts, accessible globally */
 let addToastHandler: AddToastContextHandler;
+/** Handler function for dismissing toasts, accessible globally */
 let dismissToastHandler: typeof toast.dismiss;
+/** Handler function for wiggling toasts, accessible globally */
 let wiggleHandler: typeof toast.wiggle;
 
+/**
+ * Toaster component - the main container for all toast notifications
+ * Must be rendered at the root level of your app
+ * @example
+ * ```tsx
+ * <Toaster position="top-center" duration={4000} />
+ * ```
+ */
 export const Toaster: React.FC<ToasterProps> = ({
   ToasterOverlayWrapper,
   ...toasterProps
@@ -77,6 +88,10 @@ export const Toaster: React.FC<ToasterProps> = ({
   return <ToasterUI {...props} />;
 };
 
+/**
+ * Internal UI component for the Toaster
+ * Manages toast state, lifecycle, and rendering
+ */
 export const ToasterUI: React.FC<
   ToasterProps & {
     toasts: ToastProps[];
@@ -356,6 +371,12 @@ export const ToasterUI: React.FC<
   );
 };
 
+/**
+ * Gets the toast context handlers for programmatic toast management
+ * Used internally by toast and alert functions
+ * @throws Error if Toaster component is not rendered
+ * @returns Object containing addToast, dismissToast, and wiggleToast handlers
+ */
 export const getToastContext = () => {
   if (!addToastHandler || !dismissToastHandler || !wiggleHandler) {
     throw new Error('ToastContext is not initialized');

@@ -16,17 +16,33 @@ import type { ToastPosition, ToastProps } from './types';
 
 const { width: WINDOW_WIDTH } = Dimensions.get('window');
 
+/**
+ * Props for the ToastSwipeHandler component
+ */
 type ToastSwipeHandlerProps = Pick<ToastProps, 'important'> & {
+  /** Callback when toast should be removed */
   onRemove: () => void;
+  /** Custom styles */
   style?: ViewStyle | (ViewStyle | undefined)[];
+  /** Callback when gesture begins */
   onBegin: () => void;
+  /** Callback when gesture finalizes */
   onFinalize: () => void;
+  /** Whether swipe to dismiss is enabled */
   enabled?: boolean;
+  /** Whether to use minimal styling */
   unstyled?: boolean;
+  /** Position of the toast */
   position?: ToastPosition;
+  /** Callback when toast is pressed/tapped */
   onPress: () => void;
 };
 
+/**
+ * Component that handles swipe-to-dismiss gestures for toasts
+ * Supports both horizontal (left) and vertical (up) swipe directions
+ * @param props - Component props
+ */
 export const ToastSwipeHandler: React.FC<
   React.PropsWithChildren<ToastSwipeHandlerProps>
 > = ({
@@ -216,8 +232,12 @@ export const ToastSwipeHandler: React.FC<
   );
 };
 
-// Apply progressive elastic resistance (Apple-style)
-// This function provides diminishing returns as the drag distance increases
+/**
+ * Applies progressive elastic resistance to drag gestures
+ * Provides diminishing returns as drag distance increases (Apple-style behavior)
+ * @param distance - The drag distance
+ * @returns The resistance-adjusted distance
+ */
 function elasticResistance(distance: number) {
   'worklet';
   // Base resistance factor

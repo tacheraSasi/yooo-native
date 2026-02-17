@@ -2,6 +2,9 @@ import type { TextStyle, ViewStyle } from 'react-native';
 import { useColors } from './use-colors';
 import type { ToastVariant } from './types';
 
+/**
+ * Type definition for default toast styles
+ */
 type DefaultStyles = {
   toast: ViewStyle;
   toastContent: ViewStyle;
@@ -16,6 +19,16 @@ type DefaultStyles = {
   iconColor: string;
 };
 
+/**
+ * Hook that generates default styles for toast components based on theme and variant
+ * @param params - Configuration object for style generation
+ * @param params.invert - Whether to invert the color scheme
+ * @param params.richColors - Whether to use rich color variants
+ * @param params.unstyled - Whether to return minimal/empty styles
+ * @param params.description - Description text (affects layout)
+ * @param params.variant - Toast variant determining color scheme
+ * @returns Object containing all default styles for toast components
+ */
 export const useDefaultStyles = ({
   invert,
   richColors,

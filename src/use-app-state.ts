@@ -1,6 +1,13 @@
 import React from 'react';
 import { AppState } from 'react-native';
 
+/**
+ * Hook that listens to app state changes (foreground/background)
+ * Useful for pausing/resuming toast timers when app goes to background
+ * @param params - Object containing onBackground and onForeground callbacks
+ * @param params.onBackground - Callback when app goes to background
+ * @param params.onForeground - Callback when app comes to foreground
+ */
 export const useAppStateListener = ({
   onBackground,
   onForeground,

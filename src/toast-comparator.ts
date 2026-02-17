@@ -1,5 +1,11 @@
 import { isToastAction, type ToastProps } from './types';
 
+/**
+ * Compares two toast actions for equality
+ * @param a - First toast action to compare
+ * @param b - Second toast action to compare
+ * @returns True if actions are equal, false otherwise
+ */
 const areActionsEqual = (a: ToastProps['action'], b: ToastProps['action']) => {
   if (isToastAction(a) && isToastAction(b)) {
     if (a.label !== b.label) return false;
@@ -9,6 +15,13 @@ const areActionsEqual = (a: ToastProps['action'], b: ToastProps['action']) => {
   return true;
 };
 
+/**
+ * Compares two toast objects for equality based on their key properties
+ * Used to determine if a toast needs to be re-rendered
+ * @param a - First toast to compare
+ * @param b - Second toast to compare
+ * @returns True if toasts are equal, false otherwise
+ */
 export const areToastsEqual = (a: ToastProps, b: ToastProps) => {
   return (
     a.id === b.id &&

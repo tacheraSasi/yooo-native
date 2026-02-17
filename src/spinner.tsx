@@ -9,14 +9,31 @@ import Animated, {
 } from 'react-native-reanimated';
 import { Loader } from './icons';
 
+/**
+ * Size options for the Spinner component
+ */
 export type SpinnerSize = 'small' | 'medium' | 'large';
 
+/**
+ * Props for the Spinner component
+ */
 export interface SpinnerProps {
+  /** Size of the spinner */
   size?: SpinnerSize;
+  /** Color of the spinner */
   color?: string;
+  /** Custom container style */
   style?: ViewStyle;
 }
 
+/**
+ * Spinner component that displays an animated loading indicator
+ * @example
+ * ```tsx
+ * <Spinner />
+ * <Spinner size="large" color="#FF0000" />
+ * ```
+ */
 export const Spinner: React.FC<SpinnerProps> = ({
   size = 'medium',
   color = '#007AFF',
@@ -40,6 +57,10 @@ export const Spinner: React.FC<SpinnerProps> = ({
     };
   });
 
+  /**
+   * Gets the pixel size value based on the size prop
+   * @returns The size in pixels
+   */
   const getSizeValue = () => {
     switch (size) {
       case 'small':
