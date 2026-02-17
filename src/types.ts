@@ -1,9 +1,15 @@
 import type React from 'react';
 import type { TextStyle, ViewProps, ViewStyle } from 'react-native';
 
+/**
+ * Common style props for toast components
+ */
 type StyleProps = {
+  /** Whether to use minimal/no styling */
   unstyled?: boolean;
+  /** Custom container style */
   style?: ViewStyle;
+  /** Detailed custom styles for sub-components */
   styles?: {
     toastContainer?: ViewStyle;
     toast?: ViewStyle;
@@ -16,28 +22,58 @@ type StyleProps = {
   };
 };
 
+/**
+ * Options for promise-based toasts
+ */
 type PromiseOptions = {
+  /** The promise to track */
   promise: Promise<unknown>;
+  /** Function to generate success message from result */
   success: (result: any) => string; // TODO: type this with generics
+  /** Error message (string or function) */
   error: ((error: unknown) => string) | string;
+  /** Loading message */
   loading: string;
 };
 
+/**
+ * Position where toasts can appear on screen
+ */
 export type ToastPosition = 'top-center' | 'bottom-center' | 'center';
 
+/**
+ * Theme options for toasts
+ */
 export type ToastTheme = 'light' | 'dark' | 'system';
 
+/**
+ * Direction for swipe-to-dismiss gestures
+ */
 export type ToastSwipeDirection = 'left' | 'up';
 
+/**
+ * Visual variant of a toast
+ */
 export type ToastVariant = 'success' | 'error' | 'warning' | 'info' | 'loading';
 
+/**
+ * When to automatically trigger wiggle animation
+ */
 export type AutoWiggle = 'never' | 'toast-change' | 'always';
 
+/**
+ * Action button configuration for toasts
+ */
 export type ToastAction = {
+  /** Button label text */
   label: string;
+  /** Callback when button is clicked */
   onClick: () => void;
 };
 
+/**
+ * Props for the Toast component
+ */
 export type ToastProps = StyleProps & {
   id: string | number;
   title: string;
@@ -65,16 +101,28 @@ export type ToastProps = StyleProps & {
   onPress?: () => void;
 };
 
+/**
+ * Ref handle for Toast component
+ */
 export type ToastRef = {
+  /** Trigger wiggle animation */
   wiggle: () => void;
 };
 
+/**
+ * Type guard to check if an action is a ToastAction
+ * @param action - The action to check
+ * @returns True if action is a ToastAction
+ */
 export function isToastAction(
   action: ToastAction | React.ReactNode
 ): action is ToastAction {
   return (action as ToastAction)?.onClick !== undefined;
 }
 
+/**
+ * External toast options (subset of ToastProps for external API)
+ */
 type ExternalToast = Omit<
   ToastProps,
   'id' | 'type' | 'title' | 'jsx' | 'promise' | 'variant'
@@ -82,6 +130,9 @@ type ExternalToast = Omit<
   id?: string | number;
 };
 
+/**
+ * Props for the Toaster component
+ */
 export type ToasterProps = Omit<StyleProps, 'style'> & {
   duration?: number;
   theme?: ToastTheme;
@@ -133,10 +184,16 @@ export type ToasterProps = Omit<StyleProps, 'style'> & {
   >;
 };
 
+/**
+ * Handler function type for adding toasts
+ */
 export type AddToastContextHandler = (
   data: Omit<ToastProps, 'id'> & { id?: string | number }
 ) => string | number;
 
+/**
+ * Type for the toast context
+ */
 export type ToasterContextType = Required<
   Pick<
     ToasterProps,
