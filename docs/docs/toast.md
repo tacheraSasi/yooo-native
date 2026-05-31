@@ -11,7 +11,7 @@ toast() is used to display a toast message. It can be used outside of React.
 To display a simple toast message, use the toast() function. You can pass a title and optional settings.
 
 ```jsx
-import { toast } from 'sonner-native';
+import { toast } from 'yooo-native';
 
 toast('This is a basic toast message.');
 ```
@@ -19,7 +19,7 @@ toast('This is a basic toast message.');
 Alternatively, you can pass an object as the second argument with additional options, which will override any options provided to the Toaster component if specified.
 
 ```jsx
-import { toast } from 'sonner-native';
+import { toast } from 'yooo-native';
 
 toast.success('Operation successful!', {
   style: { backgroundColor: 'blue' },

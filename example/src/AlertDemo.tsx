@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Button, ScrollView, Text, View } from 'react-native';
-import { alert } from 'sonner-native';
+import { alert } from 'yooo-native';
 
 export const AlertDemo: React.FC = () => {
   return (

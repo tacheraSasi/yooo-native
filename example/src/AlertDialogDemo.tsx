@@ -14,10 +14,9 @@ export const AlertDialogDemo: React.FC = () => {
 
   const removeRecording = async (id: string) => {
     console.log('Recording removed:', id);
-    alert.success(
-      'Recording Deleted',
-      'The recording has been successfully deleted.'
-    );
+    alert.success('Recording Deleted', {
+      description: 'The recording has been successfully deleted.',
+    });
   };
 
   return (
@@ -136,7 +135,9 @@ export const AlertDialogDemo: React.FC = () => {
                             await removeRecording(recording.id);
                           } catch (error) {
                             console.error('Error deleting recording:', error);
-                            alert.error('Error', 'Failed to delete recording.');
+                            alert.error('Error', {
+                              description: 'Failed to delete recording.',
+                            });
                           }
                         });
                       } catch (error) {

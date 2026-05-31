@@ -1,14 +1,14 @@
 # React Native Toasts & Alerts
 
-An opinionated toast and alert component for React Native. Extended version of sonner-native with alert dialog support.
+An opinionated toast and alert component for React Native. Extended version of yooo-native with alert dialog support.
 
-![sonner-native](https://github.com/user-attachments/assets/0baf95df-9c99-4db6-877e-1edcc0eca0d4)
+![yooo-native](https://github.com/user-attachments/assets/0baf95df-9c99-4db6-877e-1edcc0eca0d4)
 
 ## Features
 
 ### Toast Features
 
-- API fully matches [Sonner's](https://sonner.emilkowal.ski/)
+- API fully matches [yooo's](https://yooo.emilkowal.ski/)
 - Multiple variants, including `success`, `error`, `warning`, `custom`, `promise`
 - Promise variant with built-in loading state
 - Custom JSX with the custom variant
@@ -63,7 +63,7 @@ See [COMPONENTS.md](./COMPONENTS.md) for detailed component documentation.
 
 ## Expo Snack
 
-[https://snack.expo.dev/@gunnartorfis/sonner-native](https://snack.expo.dev/@gunnartorfis/sonner-native)
+[https://snack.expo.dev/@gunnartorfis/yooo-native](https://snack.expo.dev/@gunnartorfis/yooo-native)
 
 ## Installation
 
@@ -178,7 +178,7 @@ alert.dialog('Title', 'Message', [
 ### Show a toast
 
 ```typescript
-import { toast } from 'sonner-native';
+import { toast } from 'yooo-native';
 
 function SomeComponent() {
   return (
@@ -192,23 +192,23 @@ function SomeComponent() {
 
 ### Web support
 
-Even though Sonner Native works on the web, it is not recommended to use it there. Instead, use the original [Sonner](https://sonner.emilkowal.ski/).
+Even though yooo Native works on the web, it is not recommended to use it there. Instead, use the original [yooo](https://yooo.emilkowal.ski/).
 
-The following setup is recommended. Add a `sonner.ts` and `sonner.web.ts` file to your project and import from there instead of from this library directly. That way, sonner will be used on the web and sonner-native on native.
+The following setup is recommended. Add a `yooo.ts` and `yooo.web.ts` file to your project and import from there instead of from this library directly. That way, yooo will be used on the web and yooo-native on native.
 
 ```ts
-// sonner.ts
-export * from 'sonner-native';
+// yooo.ts
+export * from 'yooo-native';
 ```
 
 ```ts
-// sonner.web.ts
-export * from 'sonner';
+// yooo.web.ts
+export * from 'yooo';
 ```
 
 ## Documentation
 
-For more advanced usage, check out the [documentation](https://gunnartorfis.github.io/sonner-native/)
+For more advanced usage, check out the [documentation](https://gunnartorfis.github.io/yooo-native/)
 
 ## Recording
 

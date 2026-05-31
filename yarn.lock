@@ -19309,9 +19309,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sonner-native-example@workspace:example":
+"yooo-native-example@workspace:example":
   version: 0.0.0-use.local
-  resolution: "sonner-native-example@workspace:example"
+  resolution: "yooo-native-example@workspace:example"
   dependencies:
     "@babel/core": ^7.20.0
     "@expo/metro-runtime": ~3.2.3

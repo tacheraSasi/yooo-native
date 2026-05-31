@@ -31,7 +31,7 @@ If applicable, add screenshots to help explain your problem.
 
 | Library                      | Version |
 | ---------------------------- | ------- |
-| sonner-native                | x.x.x   |
+| yooo-native                  | x.x.x   |
 | react-native                 | x.x.x   |
 | react-native-reanimated      | x.x.x   |
 | react-native-gesture-handler | x.x.x   |

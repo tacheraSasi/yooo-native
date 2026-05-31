@@ -1,7 +1,7 @@
 {
   "name": "yooo-native",
   "version": "1.0.2",
-  "description": "Yooo! An opinionated toast and alert component for React Native. Extended sonner with alert dialogs - because sometimes you need to yell at your users (nicely)!",
+  "description": "Yooo! An opinionated toast and alert component for React Native. Extended yooo with alert dialogs - because sometimes you need to yell at your users (nicely)!",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
   "types": "./lib/typescript/commonjs/src/index.d.ts",

@@ -4,13 +4,13 @@ sidebar_position: 1
 
 # Introduction
 
-Sonner Native is an opinionated toast component for React Native. A port of @emilkowalski's sonner. It is customizable and performant toast library for React Native, built with Reanimated 3. It provides a simple API to display toast notifications with various options and configurations.
+yooo Native is an opinionated toast component for React Native. A port of @emilkowalski's yooo. It is customizable and performant toast library for React Native, built with Reanimated 3. It provides a simple API to display toast notifications with various options and configurations.
 
-![Preview](/img/sonner-native.png)
+![Preview](/img/yooo-native.png)
 
 ## Features
 
-- API fully matches [Sonner's](https://sonner.emilkowal.ski/)
+- API fully matches [yooo's](https://yooo.emilkowal.ski/)
 - Multiple variants, including `success`, `error`, `warning`, `custom`, `promise`
 - Promise variant with built-in loading state
 - Custom JSX with the custom variant
@@ -29,7 +29,7 @@ Sonner Native is an opinionated toast component for React Native. A port of @emi
 ## Installation
 
 ```bash npm2yarn
-yarn add sonner-native
+yarn add yooo-native
 ```
 
 #### Requirements
@@ -46,7 +46,7 @@ To use this package, **you also need to install its peer dependencies**. Check o
 ### In your App.tsx/entry point
 
 ```typescript
-import { Toaster } from 'sonner-native';
+import { Toaster } from 'yooo-native';
 
 function App() {
   return (
@@ -61,7 +61,7 @@ function App() {
 ### Show a toast
 
 ```typescript
-import { toast } from 'sonner-native';
+import { toast } from 'yooo-native';
 
 function SomeComponent() {
   return (
@@ -75,20 +75,20 @@ function SomeComponent() {
 
 ### Web support
 
-Even though Sonner Native works on the web, it is not recommended to use it there. Instead, use the original [Sonner](https://sonner.emilkowal.ski/).
+Even though yooo Native works on the web, it is not recommended to use it there. Instead, use the original [yooo](https://yooo.emilkowal.ski/).
 
-The following setup is recommended. Add a `sonner.ts` and `sonner.web.ts` file to your project and import from there instead of from this library directly. That way, sonner will be used on the web and sonner-native on native.
+The following setup is recommended. Add a `yooo.ts` and `yooo.web.ts` file to your project and import from there instead of from this library directly. That way, yooo will be used on the web and yooo-native on native.
 
 ```ts
-// sonner.ts
-export * from 'sonner-native';
+// yooo.ts
+export * from 'yooo-native';
 ```
 
 ```ts
-// sonner.web.ts
-export * from 'sonner';
+// yooo.web.ts
+export * from 'yooo';
 ```
 
 ## Examples
 
-An example can be found in the [`example`](https://github.com/gunnartorfis/sonner-native/tree/main/example) folder.
+An example can be found in the [`example`](https://github.com/gunnartorfis/yooo-native/tree/main/example) folder.

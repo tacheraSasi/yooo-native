@@ -1,9 +1,8 @@
-import React from 'react';
 import { Animated } from 'react-native';
 import { alert } from 'yooo-native';
 
 // Your exact usage converted to yooo-native
-const deleteRecording = (
+export const deleteRecording = (
   recording: any,
   translateX: Animated.Value,
   removeRecording: any
@@ -34,12 +33,12 @@ const deleteRecording = (
               useNativeDriver: true,
             }).start(async () => {
               try {
-                const file = new FileSystem.File(recording.uri);
-                await file.delete();
                 await removeRecording(recording.id);
               } catch (error) {
                 console.error('Error deleting recording:', error);
-                alert.error('Error', 'Failed to delete recording.');
+                alert.error('Error', {
+                  description: 'Failed to delete recording.',
+                });
               }
             });
           } catch (error) {
@@ -98,12 +97,13 @@ export const showDestructiveAlert = () => {
             // Simulate API call
             await new Promise((resolve) => setTimeout(resolve, 1000));
             console.log('Account deleted');
-            alert.success(
-              'Account Deleted',
-              'Your account has been permanently deleted.'
-            );
+            alert.success('Account Deleted', {
+              description: 'Your account has been permanently deleted.',
+            });
           } catch (error) {
-            alert.error('Error', 'Failed to delete account. Please try again.');
+            alert.error('Error', {
+              description: 'Failed to delete account. Please try again.',
+            });
           }
         },
       },

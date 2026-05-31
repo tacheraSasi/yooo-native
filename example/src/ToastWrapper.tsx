@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Pressable, View } from 'react-native';
-import { toast } from 'sonner-native';
+import { toast } from 'yooo-native';
 import '../global.css';
 
 export const ToastWrapper: React.ComponentType<

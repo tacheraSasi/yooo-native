@@ -9,7 +9,7 @@ The Toaster is the context component which manages the addition, update, and rem
 To use the Toaster, place it at the root level of your app, after the NavigationContainer, to ensure it works across all screens. Here's an example setup:
 
 ```tsx
-import { Toaster } from 'sonner-native';
+import { Toaster } from 'yooo-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -56,7 +56,7 @@ You can provide default styles for all toasts by passing the `style` prop to the
 
 Use the `ToasterOverlayWrapper` prop to wrap the Toaster component with a custom component. This is useful when using `react-native-z-view` to render the toasts.
 
-sonner-native uses `FullWindowOverlay` from react-native-screens by default on iOS and `View` on Android.
+yooo-native uses `FullWindowOverlay` from react-native-screens by default on iOS and `View` on Android.
 
 ```tsx
 import { ZView } from 'react-native-z-view';
@@ -69,19 +69,18 @@ import { ZView } from 'react-native-z-view';
 />;
 ```
 
-
 ### Dismiss toast on tap
 
 Use the `ToastWrapper` prop to wrap the Toast component with a custom component. This is useful when you want to customize the behavior of the toast, for example add a dismiss on tap instead of the the close icon.
 
 ```tsx
-import { Pressable } from "react-native"
+import { Pressable } from 'react-native';
 
-function Wrapper({toastId, children}){
-  function onPress(){
-    toast.dismiss(toastId)
+function Wrapper({ toastId, children }) {
+  function onPress() {
+    toast.dismiss(toastId);
   }
-  return <Pressable onPress={onPress}>{children}</Pressable>
+  return <Pressable onPress={onPress}>{children}</Pressable>;
 }
 
 <Toaster
@@ -108,6 +107,6 @@ function Wrapper({toastId, children}){
 | pauseWhenPageIsHidden     |                        Pauses toast timers when the app enters background.                         |         `{}` |
 | `swipeToDismissDirection` |                             Swipe direction to dismiss (`left`, `up`).                             |         `up` |
 | ToasterOverlayWrapper     |                                Custom component to wrap the Toaster.                               |        `div` |
-| ToastWrapper              |                                Custom component to wrap the Toast.                                 |        `div` |
+| ToastWrapper              |                                 Custom component to wrap the Toast.                                |        `div` |
 | autoWiggleOnUpdate        |             Adds a wiggle animation on toast update. `never`, `toast-change`, `always`             |      `never` |
 | richColors                |                             Makes error and success state more colorful                            |      `false` |

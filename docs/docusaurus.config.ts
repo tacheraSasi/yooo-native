@@ -3,7 +3,7 @@ import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'sonner-native',
+  title: 'yooo-native',
   tagline: 'Animated, customizable Toasts for React Native',
   favicon: 'img/favicon.ico',
 
@@ -11,12 +11,12 @@ const config: Config = {
   url: 'https://your-docusaurus-site.example.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/sonner-native/',
+  baseUrl: '/yooo-native/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'gunnartorfis', // Usually your GitHub org/user name.
-  projectName: 'sonner-native', // Usually your repo name.
+  projectName: 'yooo-native', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -44,9 +44,9 @@ const config: Config = {
 
   themeConfig: {
     navbar: {
-      title: 'sonner-native',
+      title: 'yooo-native',
       logo: {
-        alt: 'sonner-native Logo',
+        alt: 'yooo-native Logo',
         src: 'img/logo.png',
       },
       items: [
@@ -57,7 +57,7 @@ const config: Config = {
           label: 'Docs',
         },
         {
-          href: 'https://github.com/gunnartorfis/sonner-native',
+          href: 'https://github.com/gunnartorfis/yooo-native',
           label: 'GitHub',
           position: 'right',
         },
@@ -75,12 +75,12 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/gunnartorfis/sonner-native',
+              href: 'https://github.com/gunnartorfis/yooo-native',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} sonner-native, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} yooo-native, Inc. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

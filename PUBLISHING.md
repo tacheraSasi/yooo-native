@@ -1,6 +1,6 @@
-# Publishing sonner-native-with-alerts to npm
+# Publishing yooo-native-with-alerts to npm
 
-This guide will help you publish your extended version of sonner-native with alert functionality to npm.
+This guide will help you publish your extended version of yooo-native with alert functionality to npm.
 
 ## Prerequisites
 
@@ -31,14 +31,14 @@ Before publishing, you should update these fields in `package.json` to match you
 
 ## Step 2: Suggested Package Names
 
-Since `sonner-native` is already taken, here are some suggestions:
+Since `yooo-native` is already taken, here are some suggestions:
 
-- `sonner-native-alerts`
-- `sonner-native-extended`
-- `sonner-native-plus`
-- `react-native-sonner-alerts`
-- `@yourname/sonner-native` (scoped package)
-- `sonner-native-dialogs`
+- `yooo-native-alerts`
+- `yooo-native-extended`
+- `yooo-native-plus`
+- `react-native-yooo-alerts`
+- `@yourname/yooo-native` (scoped package)
+- `yooo-native-dialogs`
 - `toast-alert-native`
 
 ## Step 3: Login to npm

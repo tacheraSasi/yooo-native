@@ -8,7 +8,7 @@ import {
   Text,
   View,
 } from 'react-native';
-import { toast } from 'sonner-native';
+import { toast } from 'yooo-native';
 
 export const ToastDemo: React.FC = () => {
   const [toastId, setToastId] = React.useState<string | number | null>(null);
