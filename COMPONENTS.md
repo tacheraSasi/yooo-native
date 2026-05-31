@@ -2,6 +2,22 @@
 
 In addition to the toast and alert functionality, yooo-native provides several UI components that can be used to enhance your React Native application.
 
+## Theming
+
+Wrap your app (or a subtree) with `YoooProvider` to provide a consistent theme for yooo-native UI components. If `theme` is not specified, system theme is used.
+
+```tsx
+import { YoooProvider, Toaster } from 'yooo-native';
+
+export function App() {
+  return (
+    <YoooProvider theme="system">
+      <Toaster />
+    </YoooProvider>
+  );
+}
+```
+
 ## Button
 
 A customizable button component with multiple variants and sizes.
@@ -183,6 +199,103 @@ function MyComponent() {
       </Card>
     </>
   );
+}
+```
+
+## Switch
+
+A smooth toggle switch component.
+
+### Props
+
+- `value`: Controlled value
+- `defaultValue`: Uncontrolled initial value (default: `false`)
+- `onValueChange`: Callback when value changes
+- `disabled`: Disable interaction (default: `false`)
+- `size`: `'small'` | `'medium'` (default: `'medium'`)
+- `style`: Wrapper style
+- `trackStyle`: Custom track style
+- `thumbStyle`: Custom thumb style
+
+### Example
+
+```tsx
+import React from 'react';
+import { Switch, Label } from 'yooo-native';
+
+function MyComponent() {
+  const [enabled, setEnabled] = React.useState(false);
+  return (
+    <>
+      <Label>Notifications</Label>
+      <Switch value={enabled} onValueChange={setEnabled} />
+    </>
+  );
+}
+```
+
+## Input
+
+A themed text input with focus and error states.
+
+### Props
+
+- All React Native `TextInput` props
+- `containerStyle`: Custom wrapper style
+- `style`: Custom input text style
+- `error`: Show error border (default: `false`)
+
+### Example
+
+```tsx
+import { Input, Label } from 'yooo-native';
+
+function MyComponent() {
+  return (
+    <>
+      <Label>Email</Label>
+      <Input placeholder="you@example.com" autoCapitalize="none" />
+    </>
+  );
+}
+```
+
+## Label
+
+Form label text.
+
+### Props
+
+- All React Native `Text` props
+- `muted`: Use muted text color (default: `false`)
+
+### Example
+
+```tsx
+import { Label } from 'yooo-native';
+
+function MyComponent() {
+  return <Label muted>Optional</Label>;
+}
+```
+
+## Separator
+
+A horizontal or vertical divider.
+
+### Props
+
+- `orientation`: `'horizontal'` | `'vertical'` (default: `'horizontal'`)
+- `thickness`: Line thickness (default: `1`)
+- `style`: Custom style
+
+### Example
+
+```tsx
+import { Separator } from 'yooo-native';
+
+function MyComponent() {
+  return <Separator />;
 }
 ```
 

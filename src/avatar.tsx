@@ -7,6 +7,7 @@ import {
   type TextStyle,
   type ImageSourcePropType,
 } from 'react-native';
+import { useYoooColors } from './theme';
 
 /**
  * Size options for the Avatar component
@@ -47,9 +48,11 @@ export const Avatar: React.FC<AvatarProps> = ({
   size = 'medium',
   style,
   textStyle,
-  backgroundColor = '#007AFF',
-  textColor = '#FFFFFF',
+  backgroundColor,
+  textColor,
 }) => {
+  const colors = useYoooColors();
+
   /**
    * Gets the pixel size value based on the size prop
    * @returns The size in pixels
@@ -114,7 +117,7 @@ export const Avatar: React.FC<AvatarProps> = ({
     width: sizeValue,
     height: sizeValue,
     borderRadius: sizeValue / 2,
-    backgroundColor: backgroundColor,
+    backgroundColor: backgroundColor ?? colors.primary,
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
@@ -132,7 +135,7 @@ export const Avatar: React.FC<AvatarProps> = ({
         <Text
           style={[
             {
-              color: textColor,
+              color: textColor ?? colors.primaryForeground,
               fontSize: getFontSize(),
               fontWeight: '600',
             },
