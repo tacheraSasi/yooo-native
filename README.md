@@ -1,69 +1,27 @@
-# React Native Toasts & Alerts
+# yooo-native
 
-An opinionated toast and alert component for React Native. Extended version of yooo-native with alert dialog support.
+A React Native UI library with toasts, alerts, and ready-to-use components — built on Reanimated 3 for smooth 60 FPS animations.
 
-![yooo-native](https://github.com/user-attachments/assets/0baf95df-9c99-4db6-877e-1edcc0eca0d4)
+<!-- ![yooo-native](https://github.com/user-attachments/assets/0baf95df-9c99-4db6-877e-1edcc0eca0d4) -->
 
 ## Features
 
-### Toast Features
-
-- API fully matches [yooo's](https://yooo.emilkowal.ski/)
-- Multiple variants, including `success`, `error`, `warning`, `custom`, `promise`
-- Promise variant with built-in loading state
-- Custom JSX with the custom variant
-- Top or bottom positions
-- Title and description
-- Action button with a callback
-- Custom icons
-- Optionally dismissable with swipe, configurable left or up
-- Dismissable with toast.dismiss(), one or all toasts
-
-### Alert Dialog Features (NEW)
-
-- Modal-style alert dialogs using the same system
-- `alert.success()`, `alert.error()`, `alert.warning()`, `alert.info()`
-- `alert.confirm()` for confirmation dialogs with callbacks
-- `alert.custom()` for custom JSX content
-- Non-dismissible by default (requires explicit action)
-- Centered positioning
-- Action and cancel buttons
-
-### General Features
-
-- Highly performant using Reanimated 3, 60 FPS
-- Dark mode built-in
-- Works with Expo
-- NativeWind supported
-- Customizable via styles props
-- Works outside of React components
-
-### UI Components (NEW)
-
-- **Button** - Customizable buttons with variants and loading states
-- **Spinner** - Animated loading indicators
-- **Badge** - Notification badges and status indicators
-- **Avatar** - User avatars with initials fallback
-- **Card** - Container components with elevation and borders
-- **Switch** - Smooth toggle switch with theme-aware colors
-- **Input** - Themed text input with focus + error states
-- **Label** - Form label text
-- **Separator** - Horizontal/vertical divider line
-- **Icons** - 14+ SVG icons including Check, Bell, Heart, Star, and more
-
-See [COMPONENTS.md](./COMPONENTS.md) for detailed component documentation.
+- **Toasts** — success, error, warning, info, promise, and custom variants
+- **Alert Dialogs** — drop-in replacement for `Alert.alert()` with `alert.dialog()`
+- **UI Components** — Button, Input, Switch, Badge, Avatar, Card, Spinner, Label, Separator
+- **14+ SVG Icons** — Check, Bell, Heart, Star, ChevronRight, and more
+- **Theming** — built-in dark mode with `YoooProvider`
+- **Performant** — Reanimated 3 animations at 60 FPS
+- **Expo & NativeWind** compatible
+- **Works outside React components** — call `toast()` or `alert()` from anywhere
 
 ## Showcase
 
-<img width="416" alt="Screenshot 2024-09-06 at 16 33 10" src="https://github.com/user-attachments/assets/fb986f0f-6f5a-4716-9633-6dfe492a9e9c">
-<img width="388" alt="Screenshot 2024-09-06 at 16 32 27" src="https://github.com/user-attachments/assets/8fa438c4-3c65-4f8f-ad15-52cc24e1faf5">
-<img width="392" alt="Screenshot 2024-09-06 at 16 32 33" src="https://github.com/user-attachments/assets/fe43bc29-5d25-4e32-a88c-bba6e58a6eda">
-<img width="388" alt="Screenshot 2024-09-06 at 16 32 39" src="https://github.com/user-attachments/assets/ead85100-b52e-433a-b8b8-9416cfb79b63">
-<img width="406" alt="Screenshot 2024-09-06 at 16 33 04" src="https://github.com/user-attachments/assets/bbc20957-160f-43c1-b317-b64512ec7cef">
-
-## Expo Snack
-
-[https://snack.expo.dev/@gunnartorfis/yooo-native](https://snack.expo.dev/@gunnartorfis/yooo-native)
+<img width="416" alt="Toast demo" src="https://github.com/user-attachments/assets/fb986f0f-6f5a-4716-9633-6dfe492a9e9c">
+<img width="388" alt="Alert demo" src="https://github.com/user-attachments/assets/8fa438c4-3c65-4f8f-ad15-52cc24e1faf5">
+<img width="392" alt="Components demo" src="https://github.com/user-attachments/assets/fe43bc29-5d25-4e32-a88c-bba6e58a6eda">
+<img width="388" alt="Dark mode demo" src="https://github.com/user-attachments/assets/ead85100-b52e-433a-b8b8-9416cfb79b63">
+<img width="406" alt="Full demo" src="https://github.com/user-attachments/assets/bbc20957-160f-43c1-b317-b64512ec7cef">
 
 ## Installation
 
@@ -73,146 +31,185 @@ npm install yooo-native
 yarn add yooo-native
 ```
 
-#### Requirements
+### Peer Dependencies
 
-To use this package, **you also need to install its peer dependencies**. Check out their documentation for more information:
+```sh
+npm install react-native-reanimated react-native-gesture-handler react-native-safe-area-context react-native-svg
+```
 
 - [React Native Reanimated](https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/getting-started)
 - [React Native Gesture Handler](https://docs.swmansion.com/react-native-gesture-handler/docs/)
 - [React Native Safe Area Context](https://docs.expo.dev/versions/latest/sdk/safe-area-context/)
 - [React Native SVG](https://github.com/software-mansion/react-native-svg)
 
-## Usage
+## Quick Start
 
-### In your App.tsx/entry point
+Wrap your app with `YoooProvider` and add the `Toaster`:
 
-```typescript
+```tsx
 import { Toaster, YoooProvider } from 'yooo-native';
 
-function App() {
+export default function App() {
   return (
     <YoooProvider theme="system">
-      <View>
-        <NavigationContainer>...</NavigationContainer>
-        <Toaster />
-      </View>
+      <NavigationContainer>{/* your screens */}</NavigationContainer>
+      <Toaster />
     </YoooProvider>
   );
 }
 ```
 
-### Using Toasts
+## Toasts
 
-```typescript
+```tsx
 import { toast } from 'yooo-native';
 
-// Basic toast
-toast('Yooo! Hello World 🎉');
+toast('Hello World');
+toast.success('Saved!');
+toast.error('Something went wrong');
+toast.warning('Check your input');
+toast.info('FYI');
 
-// Toast variants
-toast.success('Yooo! Success! ✅');
-toast.error('Yooo! Error! ❌');
-toast.warning('Yooo! Warning! ⚠️');
-toast.info('Yooo! Info! ℹ️');
+// Promise toast with loading state
+toast.promise(fetchData(), {
+  loading: 'Loading...',
+  success: 'Done!',
+  error: 'Failed',
+});
 ```
 
-### Using Alert Dialogs
+## Alert Dialogs
 
-```typescript
+```tsx
 import { alert } from 'yooo-native';
 
-// Basic alerts
-alert.info('Yooo! Information message');
-alert.success('Yooo! Operation completed!');
-alert.error('Yooo! Something went wrong');
+alert.info('Heads up!');
+alert.success('Operation completed');
+alert.error('Something went wrong');
 
-// Simple confirmation
-alert.confirm('Yooo! Are you sure?', {
-  onConfirm: () => console.log('User confirmed'),
-  onCancel: () => console.log('User cancelled')
+// Confirmation
+alert.confirm('Are you sure?', {
+  onConfirm: () => deleteItem(),
+  onCancel: () => console.log('Cancelled'),
 });
 
-// Advanced dialog (matches Alert.alert() API)
-alert.dialog(
-  'Delete Item',
-  'Are you sure you want to delete this item? This action cannot be undone.',
-  [
-    { text: 'Cancel', style: 'cancel' },
-    {
-      text: 'Delete',
-      style: 'destructive',
-      onPress: async () => {
-        // Your delete logic here
-        console.log('Item deleted');
-      }
-    }
-  ]
-);
-
-// Custom alert with JSX
-alert.custom(
-  <YourCustomComponent />
-);
-```
-
-### Replacing React Native's Alert.alert()
-
-You can directly replace React Native's `Alert.alert()` with `alert.dialog()`:
-
-```typescript
-// Before (React Native)
-import { Alert } from 'react-native';
-Alert.alert('Title', 'Message', [
+// Drop-in replacement for Alert.alert()
+alert.dialog('Delete Item', 'This cannot be undone.', [
   { text: 'Cancel', style: 'cancel' },
-  { text: 'OK', onPress: () => console.log('OK') },
+  { text: 'Delete', style: 'destructive', onPress: () => deleteItem() },
 ]);
 
-// After (yooo-native)
-import { alert } from 'yooo-native';
-alert.dialog('Title', 'Message', [
-  { text: 'Cancel', style: 'cancel' },
-  { text: 'OK', onPress: () => console.log('OK') },
-]);
+// Custom JSX
+alert.custom(<YourCustomComponent />);
 ```
 
-### Show a toast
+## Components
 
-```typescript
-import { toast } from 'yooo-native';
+All components are theme-aware via `YoooProvider`.
 
-function SomeComponent() {
-  return (
-    <Button
-      title="Show Toast"
-      onPress={() => toast('Hello, World!')}
-    />
-  );
-}
+### Button
+
+```tsx
+import { Button, Check } from 'yooo-native';
+
+<Button variant="primary" onPress={save}>Save</Button>
+<Button variant="destructive" icon={<Check size={20} color="#FFF" />}>Delete</Button>
+<Button variant="ghost" loading>Loading...</Button>
 ```
 
-### Web support
+Variants: `primary` | `secondary` | `destructive` | `ghost`  
+Sizes: `small` | `medium` | `large`
 
-Even though yooo Native works on the web, it is not recommended to use it there. Instead, use the original [yooo](https://yooo.emilkowal.ski/).
+### Input
 
-The following setup is recommended. Add a `yooo.ts` and `yooo.web.ts` file to your project and import from there instead of from this library directly. That way, yooo will be used on the web and yooo-native on native.
+```tsx
+import { Input, Label } from 'yooo-native';
 
-```ts
-// yooo.ts
-export * from 'yooo-native';
+<Label>Email</Label>
+<Input placeholder="you@example.com" autoCapitalize="none" />
+<Input error placeholder="Required field" />
 ```
 
-```ts
-// yooo.web.ts
-export * from 'yooo';
+### Switch
+
+```tsx
+import { Switch } from 'yooo-native';
+
+<Switch value={enabled} onValueChange={setEnabled} />;
 ```
 
-## Documentation
+Sizes: `small` | `medium`
 
-For more advanced usage, check out the [documentation](https://gunnartorfis.github.io/yooo-native/)
+### Badge
 
-## Recording
+```tsx
+import { Badge, Bell } from 'yooo-native';
 
-https://github.com/user-attachments/assets/ccc428ca-37c3-4589-9e8c-f414c40d764c
+<Badge variant="success">Active</Badge>
+<Badge variant="error">5</Badge>
+<Badge variant="info" icon={<Bell size={12} color="#FFF" />}>3 notifications</Badge>
+```
+
+Variants: `default` | `success` | `error` | `warning` | `info`
+
+### Avatar
+
+```tsx
+import { Avatar } from 'yooo-native';
+
+<Avatar source={{ uri: 'https://example.com/photo.jpg' }} size="large" />
+<Avatar name="John Doe" size="medium" backgroundColor="#FF0000" />
+```
+
+Sizes: `small` | `medium` | `large` | `xlarge`
+
+### Card
+
+```tsx
+import { Card } from 'yooo-native';
+
+<Card variant="elevated"><Text>Elevated card with shadow</Text></Card>
+<Card variant="outlined"><Text>Outlined card</Text></Card>
+<Card variant="filled"><Text>Filled card</Text></Card>
+```
+
+### Spinner
+
+```tsx
+import { Spinner } from 'yooo-native';
+
+<Spinner size="medium" color="#007AFF" />;
+```
+
+### Label & Separator
+
+```tsx
+import { Label, Separator } from 'yooo-native';
+
+<Label>Username</Label>
+<Label muted>Optional</Label>
+<Separator />
+<Separator orientation="vertical" />
+```
+
+### Icons
+
+14 SVG icons included:
+
+```tsx
+import { CircleCheck, Bell, Heart, Star, Check, Info, X, Loader,
+         CircleX, TriangleAlert, AlertCircle, ChevronRight, ChevronDown } from 'yooo-native';
+
+<Bell size={24} color="#007AFF" />
+<Heart size={20} color="#FF69B4" />
+<Star size={28} color="#FFD700" />
+```
+
+See [COMPONENTS.md](./COMPONENTS.md) for full API reference.
+
+<!-- ## Recording
+
+https://github.com/user-attachments/assets/ccc428ca-37c3-4589-9e8c-f414c40d764c -->
 
 ## Contributing
 
@@ -221,7 +218,3 @@ See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the 
 ## License
 
 MIT
-
----
-
-Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
