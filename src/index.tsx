@@ -31,6 +31,10 @@ export { Toaster } from './toaster';
 export { toast } from './toast-fns';
 export { alert } from './alert-fns';
 
+// Provider
+export { YoooProvider, useYoooTheme, useYoooColors } from './theme';
+export type { YoooProviderProps, YoooColorScheme, YoooColors } from './theme';
+
 // Components
 export {
   Button,
@@ -47,6 +51,10 @@ export {
 } from './badge';
 export { Avatar, type AvatarProps, type AvatarSize } from './avatar';
 export { Card, type CardProps, type CardVariant } from './card';
+export { Switch, type SwitchProps, type SwitchSize } from './switch';
+export { Input, type InputProps } from './input';
+export { Label, type LabelProps } from './label';
+export { Separator, type SeparatorProps } from './separator';
 
 // Icons
 export {

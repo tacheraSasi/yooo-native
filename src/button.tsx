@@ -6,6 +6,7 @@ import {
   type ViewStyle,
   ActivityIndicator,
 } from 'react-native';
+import { useYoooColors } from './theme';
 
 /**
  * Variant options for the Button component
@@ -65,6 +66,8 @@ export const Button: React.FC<ButtonProps> = ({
   icon,
   iconPosition = 'left',
 }) => {
+  const colors = useYoooColors();
+
   /**
    * Generates the container style based on variant, size, and disabled state
    * @returns The computed ViewStyle for the button container
@@ -74,21 +77,24 @@ export const Button: React.FC<ButtonProps> = ({
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'center',
-      borderRadius: 8,
+      borderRadius: 12,
       paddingHorizontal: size === 'small' ? 12 : size === 'medium' ? 16 : 20,
       paddingVertical: size === 'small' ? 6 : size === 'medium' ? 10 : 14,
       gap: 8,
+      borderCurve: 'continuous',
     };
 
     const variantStyles: Record<ButtonVariant, ViewStyle> = {
       primary: {
-        backgroundColor: '#007AFF',
+        backgroundColor: colors.primary,
       },
       secondary: {
-        backgroundColor: '#E5E5EA',
+        backgroundColor: colors.surfaceMuted,
+        borderWidth: 1,
+        borderColor: colors.border,
       },
       destructive: {
-        backgroundColor: '#FF3B30',
+        backgroundColor: colors.destructive,
       },
       ghost: {
         backgroundColor: 'transparent',
@@ -114,16 +120,16 @@ export const Button: React.FC<ButtonProps> = ({
 
     const variantTextStyles: Record<ButtonVariant, TextStyle> = {
       primary: {
-        color: '#FFFFFF',
+        color: colors.primaryForeground,
       },
       secondary: {
-        color: '#000000',
+        color: colors.text,
       },
       destructive: {
-        color: '#FFFFFF',
+        color: colors.destructiveForeground,
       },
       ghost: {
-        color: '#007AFF',
+        color: colors.primary,
       },
     };
 
@@ -136,7 +142,14 @@ export const Button: React.FC<ButtonProps> = ({
       disabled={disabled || loading}
       style={({ pressed }) => [
         getButtonStyle(),
-        pressed && !disabled && !loading && { opacity: 0.7 },
+        pressed &&
+          !disabled &&
+          !loading && [
+            { opacity: 0.85 },
+            variant === 'ghost'
+              ? { backgroundColor: colors.surfaceMuted }
+              : undefined,
+          ],
         style,
       ]}
     >
@@ -144,8 +157,8 @@ export const Button: React.FC<ButtonProps> = ({
         <ActivityIndicator
           color={
             variant === 'primary' || variant === 'destructive'
-              ? '#FFFFFF'
-              : '#007AFF'
+              ? colors.primaryForeground
+              : colors.primary
           }
         />
       ) : (

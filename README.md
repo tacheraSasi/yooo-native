@@ -45,6 +45,10 @@ An opinionated toast and alert component for React Native. Extended version of s
 - **Badge** - Notification badges and status indicators
 - **Avatar** - User avatars with initials fallback
 - **Card** - Container components with elevation and borders
+- **Switch** - Smooth toggle switch with theme-aware colors
+- **Input** - Themed text input with focus + error states
+- **Label** - Form label text
+- **Separator** - Horizontal/vertical divider line
 - **Icons** - 14+ SVG icons including Check, Bell, Heart, Star, and more
 
 See [COMPONENTS.md](./COMPONENTS.md) for detailed component documentation.
@@ -83,14 +87,16 @@ To use this package, **you also need to install its peer dependencies**. Check o
 ### In your App.tsx/entry point
 
 ```typescript
-import { Toaster } from 'yooo-native';
+import { Toaster, YoooProvider } from 'yooo-native';
 
 function App() {
   return (
-    <View>
-      <NavigationContainer>...</NavigationContainer>
-      <Toaster />
-    </View>
+    <YoooProvider theme="system">
+      <View>
+        <NavigationContainer>...</NavigationContainer>
+        <Toaster />
+      </View>
+    </YoooProvider>
   );
 }
 ```

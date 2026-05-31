@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, type TextStyle, type ViewStyle } from 'react-native';
+import { useYoooColors } from './theme';
 
 /**
  * Variant options for the Badge component
@@ -46,6 +47,8 @@ export const Badge: React.FC<BadgeProps> = ({
   textStyle,
   icon,
 }) => {
+  const colors = useYoooColors();
+
   /**
    * Generates the container style based on size and variant
    * @returns The computed ViewStyle for the badge container
@@ -59,23 +62,26 @@ export const Badge: React.FC<BadgeProps> = ({
       paddingHorizontal: size === 'small' ? 6 : size === 'medium' ? 8 : 10,
       paddingVertical: size === 'small' ? 2 : size === 'medium' ? 4 : 6,
       gap: 4,
+      borderCurve: 'continuous',
     };
 
     const variantStyles: Record<BadgeVariant, ViewStyle> = {
       default: {
-        backgroundColor: '#E5E5EA',
+        backgroundColor: colors.surfaceMuted,
+        borderWidth: 1,
+        borderColor: colors.border,
       },
       success: {
-        backgroundColor: '#34C759',
+        backgroundColor: colors.success,
       },
       error: {
-        backgroundColor: '#FF3B30',
+        backgroundColor: colors.destructive,
       },
       warning: {
-        backgroundColor: '#FF9500',
+        backgroundColor: colors.warning,
       },
       info: {
-        backgroundColor: '#007AFF',
+        backgroundColor: colors.info,
       },
     };
 
@@ -94,19 +100,19 @@ export const Badge: React.FC<BadgeProps> = ({
 
     const variantTextStyles: Record<BadgeVariant, TextStyle> = {
       default: {
-        color: '#000000',
+        color: colors.text,
       },
       success: {
-        color: '#FFFFFF',
+        color: colors.primaryForeground,
       },
       error: {
-        color: '#FFFFFF',
+        color: colors.destructiveForeground,
       },
       warning: {
-        color: '#FFFFFF',
+        color: colors.destructiveForeground,
       },
       info: {
-        color: '#FFFFFF',
+        color: colors.primaryForeground,
       },
     };
 

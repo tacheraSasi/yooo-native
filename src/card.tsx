@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, type ViewStyle } from 'react-native';
+import { useYoooColors } from './theme';
 
 /**
  * Variant options for the Card component
@@ -32,6 +33,8 @@ export const Card: React.FC<CardProps> = ({
   variant = 'elevated',
   style,
 }) => {
+  const colors = useYoooColors();
+
   /**
    * Generates the container style based on the variant
    * @returns The computed ViewStyle for the card container
@@ -40,7 +43,8 @@ export const Card: React.FC<CardProps> = ({
     const baseStyle: ViewStyle = {
       borderRadius: 12,
       padding: 16,
-      backgroundColor: '#FFFFFF',
+      backgroundColor: colors.surface,
+      borderCurve: 'continuous',
     };
 
     const variantStyles: Record<CardVariant, ViewStyle> = {
@@ -53,13 +57,17 @@ export const Card: React.FC<CardProps> = ({
         shadowOpacity: 0.1,
         shadowRadius: 8,
         elevation: 4,
+        borderWidth: 1,
+        borderColor: colors.border,
       },
       outlined: {
         borderWidth: 1,
-        borderColor: '#E5E5EA',
+        borderColor: colors.border,
       },
       filled: {
-        backgroundColor: '#F2F2F7',
+        backgroundColor: colors.surfaceMuted,
+        borderWidth: 1,
+        borderColor: colors.border,
       },
     };
 

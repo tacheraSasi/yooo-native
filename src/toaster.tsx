@@ -4,6 +4,7 @@ import { FullWindowOverlay } from 'react-native-screens';
 import { toastDefaultValues } from './constants';
 import { ToastContext } from './context';
 import { Positioner } from './positioner';
+import { useYoooTheme } from './theme';
 import { Toast } from './toast';
 import {
   toast,
@@ -113,7 +114,7 @@ export const ToasterUI: React.FC<
   icons,
   pauseWhenPageIsHidden,
   gap,
-  theme,
+  theme: themeProp,
   autoWiggleOnUpdate,
   richColors,
   toasts,
@@ -123,6 +124,9 @@ export const ToasterUI: React.FC<
   ToastWrapper,
   ...props
 }) => {
+  const { theme: providerTheme } = useYoooTheme();
+  const theme = themeProp ?? providerTheme ?? toastDefaultValues.theme;
+
   addToastHandler = React.useCallback(
     (options) => {
       const id =

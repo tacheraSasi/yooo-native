@@ -3,6 +3,11 @@ import { Button } from '../button';
 import { Badge } from '../badge';
 import { Avatar } from '../avatar';
 import { Card } from '../card';
+import { Switch } from '../switch';
+import { Input } from '../input';
+import { Label } from '../label';
+import { Separator } from '../separator';
+import { YoooProvider } from '../theme';
 
 // Mock Spinner separately since it uses Reanimated
 jest.mock('../spinner', () => ({
@@ -29,6 +34,30 @@ describe('Component Exports', () => {
     expect(Card).toBeDefined();
     expect(typeof Card).toBe('function');
   });
+
+  it('should export Switch component', () => {
+    expect(Switch).toBeDefined();
+    expect(typeof Switch).toBe('function');
+  });
+
+  it('should export Input component', () => {
+    expect(Input).toBeDefined();
+  });
+
+  it('should export Label component', () => {
+    expect(Label).toBeDefined();
+    expect(typeof Label).toBe('function');
+  });
+
+  it('should export Separator component', () => {
+    expect(Separator).toBeDefined();
+    expect(typeof Separator).toBe('function');
+  });
+
+  it('should export YoooProvider', () => {
+    expect(YoooProvider).toBeDefined();
+    expect(typeof YoooProvider).toBe('function');
+  });
 });
 
 describe('Component Props', () => {
@@ -51,5 +80,27 @@ describe('Component Props', () => {
   it('Card should accept children prop', () => {
     const element = React.createElement(Card, { children: null });
     expect(element.type).toBe(Card);
+  });
+
+  it('Switch should accept value prop', () => {
+    const element = React.createElement(Switch, { value: true });
+    expect(element.type).toBe(Switch);
+    expect(element.props.value).toBe(true);
+  });
+
+  it('Input should accept placeholder prop', () => {
+    const element = React.createElement(Input, { placeholder: 'Email' });
+    expect(element.props.placeholder).toBe('Email');
+  });
+
+  it('Label should accept children prop', () => {
+    const element = React.createElement(Label, { children: 'Name' });
+    expect(element.type).toBe(Label);
+  });
+
+  it('Separator should accept orientation prop', () => {
+    const element = React.createElement(Separator, { orientation: 'vertical' });
+    expect(element.type).toBe(Separator);
+    expect(element.props.orientation).toBe('vertical');
   });
 });

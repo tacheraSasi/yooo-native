@@ -8,6 +8,7 @@ import Animated, {
   Easing,
 } from 'react-native-reanimated';
 import { Loader } from './icons';
+import { useYoooColors } from './theme';
 
 /**
  * Size options for the Spinner component
@@ -36,9 +37,10 @@ export interface SpinnerProps {
  */
 export const Spinner: React.FC<SpinnerProps> = ({
   size = 'medium',
-  color = '#007AFF',
+  color,
   style,
 }) => {
+  const colors = useYoooColors();
   const rotation = useSharedValue(0);
 
   useEffect(() => {
@@ -75,11 +77,12 @@ export const Spinner: React.FC<SpinnerProps> = ({
   };
 
   const sizeValue = getSizeValue();
+  const resolvedColor = color ?? colors.primary;
 
   return (
     <View style={[{ width: sizeValue, height: sizeValue }, style]}>
       <Animated.View style={animatedStyle}>
-        <Loader size={sizeValue} color={color} />
+        <Loader size={sizeValue} color={resolvedColor} />
       </Animated.View>
     </View>
   );
