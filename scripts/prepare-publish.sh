@@ -13,15 +13,14 @@ fi
 
 echo "✅ You're logged in to npm as: $(npm whoami)"
 
-# Check if package name is available
-echo "🔍 Checking if package name is available..."
+# Check if package already exists (skip for updates)
+echo "🔍 Checking package on npm..."
+CURRENT_USER=$(npm whoami)
 if npm view yooo-native > /dev/null 2>&1; then
-    echo "❌ Package name 'yooo-native' is already taken!"
-    echo "Please choose a different name in package.json"
-    exit 1
+    echo "✅ Package 'yooo-native' exists on npm — publishing update"
+else
+    echo "✅ Package name 'yooo-native' is available — first publish"
 fi
-
-echo "✅ Package name 'yooo-native' is available!"
 
 # Build the package
 echo "🔨 Building the package..."
