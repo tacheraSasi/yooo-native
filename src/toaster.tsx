@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { Platform } from 'react-native';
-import { FullWindowOverlay } from 'react-native-screens';
+
 import { toastDefaultValues } from './constants';
 import { ToastContext } from './context';
 import { Positioner } from './positioner';
@@ -78,14 +77,6 @@ export const Toaster: React.FC<ToasterProps> = ({
     );
   }
 
-  if (Platform.OS === 'ios') {
-    return (
-      <FullWindowOverlay>
-        <ToasterUI {...props} />
-      </FullWindowOverlay>
-    );
-  }
-
   return <ToasterUI {...props} />;
 };
 
@@ -126,6 +117,8 @@ export const ToasterUI: React.FC<
 }) => {
   const { theme: providerTheme } = useYoooTheme();
   const theme = themeProp ?? providerTheme ?? toastDefaultValues.theme;
+  const toastsRef = React.useRef(toasts);
+  toastsRef.current = toasts;
 
   addToastHandler = React.useCallback(
     (options) => {
@@ -202,7 +195,7 @@ export const ToasterUI: React.FC<
   >(
     (id, origin) => {
       if (!id) {
-        toasts.forEach((currentToast) => {
+        toastsRef.current.forEach((currentToast) => {
           if (origin === 'onDismiss') {
             currentToast.onDismiss?.(currentToast.id);
           } else {
@@ -218,7 +211,7 @@ export const ToasterUI: React.FC<
         currentToasts.filter((currentToast) => currentToast.id !== id)
       );
 
-      const toastForCallback = toasts.find(
+      const toastForCallback = toastsRef.current.find(
         (currentToast) => currentToast.id === id
       );
       if (origin === 'onDismiss') {
@@ -229,7 +222,7 @@ export const ToasterUI: React.FC<
 
       return id;
     },
-    [setToasts, toasts, toastsCounter]
+    [setToasts, toastsCounter]
   );
 
   dismissToastHandler = React.useCallback(

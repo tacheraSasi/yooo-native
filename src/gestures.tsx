@@ -3,7 +3,6 @@ import { Dimensions, Platform, type ViewStyle } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, {
   Easing,
-  LinearTransition,
   interpolate,
   runOnJS,
   useAnimatedStyle,
@@ -11,7 +10,6 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import { useToastContext } from './context';
-import { easeInOutCircFn } from './easings';
 import type { ToastPosition, ToastProps } from './types';
 
 const { width: WINDOW_WIDTH } = Dimensions.get('window');
@@ -72,6 +70,7 @@ export const ToastSwipeHandler: React.FC<
       if (!enabled) {
         return;
       }
+      translate.value = 0;
       runOnJS(onBegin)();
     })
     .onChange((event) => {
@@ -205,7 +204,7 @@ export const ToastSwipeHandler: React.FC<
   }, [direction, translate]);
 
   return (
-    <GestureDetector gesture={Gesture.Race(tap, pan)}>
+    <GestureDetector gesture={Gesture.Simultaneous(tap, pan)}>
       <Animated.View
         style={[
           animatedStyle,
@@ -223,7 +222,6 @@ export const ToastSwipeHandler: React.FC<
             : {},
           style,
         ]}
-        layout={LinearTransition.easing(easeInOutCircFn)}
         aria-live={important ? 'assertive' : 'polite'} // https://reactnative.dev/docs/accessibility#aria-live-android
       >
         {children}
